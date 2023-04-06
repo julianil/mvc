@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: rgb(253, 253, 246);
+}
+
+main {
+    margin: 0 auto;
+    max-width: 1000px;
+    min-height: 100px;
+    padding-top: 30px;
+}
+
+.site-header {
+    background-size: cover;
+    height: 400px;
+}
+
+.site-title {
+    font-size: 5em;
+    color: rgb(253, 253, 246);
+    padding-left: 40px;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h3 {
+    padding-bottom: 10px;
+}
+
+nav {
+    background-color: rgb(132, 132, 186);
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    max-width: 400px;
+    height: 50px;
+    align-items: center;
+    padding-left: 40px;
+    font-size: 20px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+}
+
+.author {
+    font-style: italic;
+    color: gray;
+    margin-top: 0.2em;
+    margin-bottom: 1em;
+}
+
+.two-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-img img {
+    max-width: 400px;
+    margin-left: 40px;
+    border-radius: 50%;
+}
+
+.about-mvc {
+    max-width: 500px;
+}
+
+.about-mvc-list {
+    display: inline;
+    list-style-type: circle;
+    font-size: 0.8em;
+}
+
+.about-mvc-list li {
+    margin: 10px;
+}
+
+.links a {
+    color: black;
+}
+
+.links a:hover {
+    color: rgb(132, 132, 186);
+}
+
+.links img {
+    width: 200px;
+}
+
+.dice img {
+    width: 200px;
+}
+
+.kmom-links {
+    border-bottom: 1px solid #8484ba;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.kmom-links a {
+    color: #000;
+    padding-bottom: 10px;
+}
+
+.kmom-links a:hover {
+    color: rgb(132, 132, 186);
+}
+
+footer {
+    background-color: rgb(132, 132, 186);
+    min-height: 150px;
+    padding: 40px;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 40px;
+    color: white;
+}

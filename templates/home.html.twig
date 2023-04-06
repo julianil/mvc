@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <h1>Home</h1>
+    <p class="author">Skriven 2023-04-05 av Julia Nilsson</p>
+    <div class="two-columns">
+        <div>
+            <p>Hej,<br>
+            Mitt namn är Julia Nilsson och jag är 22 år gammal. Född och uppvuxen i Stockholm, Täby, i 
+            ett villaområde cirka 25 minuter utanför city. När jag var liten spelade jag fotboll men 
+            har i övrigt inte några speciella intressen utöver det vanliga. Efter studentent hamnade 
+            direkt i Norrköping och pluggade här i 3 år tills jag hade en kandidat i Grafisk Design och 
+            Kommunikation. Under denna tid träffade jag även min sambo som jag nu efter examen bor kvar 
+            i Norrköping med. På fritiden jobbar jag extra på en kommunikationsbyrå här i stan, hänger med 
+            kompisar, tränar och gör andra vanliga svensson-saker.<br><br>
+            Programmering har intresserat mig sedan jag var ungefär 10 år och började blogga tillsammans 
+            med en kompis, då "byggde" vi tillsammans vår första wordpress hemsida. Efter det lades dock 
+            intresset på is ett bra tag. Det var inte förens nu när jag tog min kandidat och då igen fick 
+            prova på programmering och webb som intresset ännu en gång blommade upp. Jag har alltså 
+            tidigare läst bland annat grunder i webbprogrammering och lite UX. Jag har nu snart läst 1 år med 
+            kurser på BTH där jag fått möjligheten att vidga mina kunskaper ytterligare. Jag valde alltså att 
+            bygga på min kandidatexamen med kurspaketen "Webbprogrammering och databaser" 
+            och "Webbutveckling och programmering". En period som nu börjar lida mot sitt slut!<br><br>
+            Jag läser mina kurser helt på distans men jag hoppas att vi syns i chatten eller möjligtvis på 
+            zoom iallafall!</p>
+        </div>
+        <div class="site-img">
+            <a href="{{ asset('img/me.jpg') }}">
+                <img src="{{ asset('img/me.jpg') }}" alt="">
+            </a>
+        </div>
+    </div>
+
+{% endblock %}

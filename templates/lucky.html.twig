@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Magic number{% endblock %}
+
+{% block body %}
+    <h1>Throw the dice</h1>
+    <p class="author">Skriven 2023-04-05 av Julia Nilsson</p>
+    <div class="two-columns">
+        <div class="dice">
+            <p>Your dice: {{ number }}</p>
+            <img src="{{ asset('img/' ~ number ~ '.png') }}" alt="">
+        </div>
+        <div class="site-img">
+            <a href="{{ asset('img/dice.jpg') }}">
+                <img src="{{ asset('img/dice.jpg') }}" alt="">
+            </a>
+        </div>
+    </div>
+{% endblock %}
