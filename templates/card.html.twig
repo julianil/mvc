@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card{% endblock %}
+
+{% block body %}
+    <div class="two-columns">
+        <div class="game-text">
+            <h1>Kortspel</h1>
+            <p>Jag har 4 stycken klasser: Card, DeckOfCards, CardHand och CardGraphic. Grunden är skapad i klassen Card som har två "protected" variabler, value och color. Dessa representerar siffran samt
+            färgen på kortet. Klassen har även ett antal metoder som gör att den går att jobba med, exempelvis draw_card som slumpar fram ett värde och en färg på ett kort. Vi har även tre get-metoder som 
+            ger oss ett korts värde, färg eller både och som en string. Klassen Card har jag även två kompositioner, DeckOfCards samt CardHand.<br><br>
+            DeckOfCards klassen representerar en kortlek med 52 Card-objekt i sig. I denna klass finns också ett antal metoder som liknar de i Card klassen men som är anpassade för en array, då DeckOfCards är en array av flera Card-objekt. Bland annat finns metoden add_cards som fyller på en 
+            ny deck med 52 olika kort i sorterad ordning. Vi har även metoden shuffleDeck som slumpar om ordningen på Card-objekten i DeckOfCard-objektet. Även i denna klass finns det tre get metoder. En som retunerar mängden Card-objekt i DeckOfCard-objektet, 
+            en som retunerar alla värden samt en som ger oss DeckOfCards-objektet som en array.<br><br>
+            CardHand klassen fungerar i stort sätt likadant som DeckOfCards handen, skillnaden är att denna kan innehålla olika många Card-objekt, beroende på hur många användaren väljer. Klassen har en add-metod som egentligen bara adderar ett anget antal Card-objekt till CardHand-objektet. 
+            Sen finns även draw_card metoden som ger varje draget kort i CardHand-objeket ett värde genom att anropa draw_card metoden i Card klassen. Utöver dessa har även CardHand objektet exakt samma get metoder som DeckOfCards klassen.<br><br>
+            Slutligen har jag skapat klassen CardGraphic som ärver Card klassen. Den har alltså bara en egen metod vilket är en getAsString metod. I övrigt har denna samma egenskaper som Card klassen plus en extra "protected" variabel, representation. Denna variabel byter ut color symbolerna i Card klassen till text.</p>
+            <img src="{{ asset('img/uml-cards.png') }}" alt="UML-diagram">
+        </div>
+        <div class="all-games-nav">
+            <button><a href="{{ path('deck') }}">Hela kortleken</a></button><br>
+            <button><a href="{{ path('shuffel') }}">Blanda kortleken</a></button><br>
+            <button><a href="{{ path('draw') }}">Dra ett kort</a></button><br>
+            <form method="post" action="">
+                <input type="number" name="num_cards" min="1" max="52">
+                <input type="submit" name="do_it" value="Dra flera kort">
+            </form>
+        </div>
+    </div>
+{% endblock %}

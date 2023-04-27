@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Magic number{% endblock %}
+
+{% block body %}
+    <h1>Kortlek</h1>
+    <div class="all_cards">
+        {% for card in get_cards[0:26] %}
+            <div class="card-black">
+                {{ card }}
+            </div>
+        {% endfor %}
+        {% for card in get_cards[26:52] %}
+            <div class="card-red">
+                {{ card }}
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

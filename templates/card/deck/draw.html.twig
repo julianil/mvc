@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Magic number{% endblock %}
+
+{% block body %}
+    <h1>Draget kort</h1>
+    <div class="all_cards">
+        <div class="card-red">
+            {{ drawn_card }}
+        </div>
+    </div>
+    <p>Antal dragna kort: {{ num_cards }}<br>
+    Antal kort kvar i leken: {{ num_cards_left }}</p>
+{% endblock %}

@@ -12,8 +12,10 @@ body {
 main {
     margin: 0 auto;
     max-width: 1000px;
-    min-height: 100px;
+    min-height: 500px;
     padding-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 .site-header {
@@ -35,6 +37,11 @@ h3 {
     padding-bottom: 10px;
 }
 
+p {
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
 nav {
     background-color: rgb(132, 132, 186);
 }
@@ -46,8 +53,8 @@ ul {
     max-width: 400px;
     height: 50px;
     align-items: center;
-    padding-left: 40px;
     font-size: 20px;
+    padding-left: 40px;
 }
 
 a {
@@ -122,6 +129,76 @@ a:hover {
 
 .kmom-links a:hover {
     color: rgb(132, 132, 186);
+}
+
+.game-text {
+    width: 65vw;
+    padding-right: 20px;
+}
+
+.all-games-nav {
+    margin-bottom: 20px;
+    margin-top: 70px;
+}
+
+button, input[type=submit] {
+    padding: 10px;
+    background-color: #8484ba;
+    border-radius: 5%;
+    color: white;
+    margin-bottom: 15px;
+}
+
+input[type=number] {
+    max-width: 3em;
+    padding: 10px;
+}
+
+.all-games-nav a {
+    color: white;
+}
+
+.games-nav {
+    margin-top: 1em;
+}
+
+.games-nav ul {
+    list-style-type: none;
+    display: block;
+    max-width: 800px;
+}
+
+.api {
+    display: flex;
+}
+
+.api p {
+    width: 700px;
+}
+
+.api button {
+    height: 40px;
+}
+
+.all_cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-black,
+.card-red {
+    border: 1px solid #000;
+    border-radius: 5%;
+    font-size: 2em;
+    height: 225px;
+    line-height: 225px;
+    margin: 0.3em;
+    text-align: center;
+    width: 150px;
+}
+
+.card-red {
+    color: red;
 }
 
 footer {

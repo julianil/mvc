@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %}api{% endblock %}
+
+{% block body %}
+    <h1>API:er</h1>
+    <div class="games-nav">
+        <div class="api">
+            <p>Dagens quote ger dig dagens datum samt det nuvarande klockslaget. Dessutom för du ta del av "dagens quote" som är ett utvalt citat med syfte att vara inspirerande.</p>
+            <button><a href="{{ path('api_quote') }}">Dagens quote</a></button>
+        </div>
+        <div class="api">
+            <p>Här finner du hela kortleken sorterad efter färg och värde.</p>
+            <button><a href="{{ path('api_deck') }}">Visa kortleken</a></button>        
+        </div>
+        <div class="api">
+            <p>Här finner du hela kortleken blandad.</p>
+            <button><a href="{{ path('api_shuffle') }}">Blanda kortleken</a></button>
+        </div>
+       <div class="api">
+            <p>Här finner du ditt ur kortleken slumpmässigt dragna kort.</p>
+            <button><a href="{{ path('api_draw_get') }}">Dra ett kort</a></button>
+        </div>
+        <div class="api">
+            <p>Här finner du din hand med slumpmässigt dragna kort från kortleken.</p>
+            <form method="post" action="/api/deck/draw">
+                <input type="number" name="num_cards" min="1" max="52">
+                <input type="submit" name="do_it" value="Dra kort">
+            </form>
+        </div>
+    </div>
+{% endblock %}
