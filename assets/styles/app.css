@@ -150,7 +150,7 @@ button, input[type=submit] {
 }
 
 input[type=number] {
-    max-width: 3em;
+    max-width: 5em;
     padding: 10px;
 }
 
