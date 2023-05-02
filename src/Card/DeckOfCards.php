@@ -8,7 +8,7 @@ class DeckOfCards
 {
     private $deck = [];
 
-    public function add_cards(): void
+    public function addCards(): void
     {
         $colors = array("♣", "♣", "♣", "♣", "♣", "♣", "♣", "♣", "♣", "♣", "♣", "♣", "♣", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♥", "♥", "♥", "♥", "♥", "♥", "♥", "♥", "♥", "♥", "♥", "♥", "♥", "♦", "♦", "♦", "♦", "♦", "♦", "♦", "♦", "♦", "♦", "♦", "♦", "♦");
         $values = array("2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A");
@@ -17,7 +17,7 @@ class DeckOfCards
             $index = $i - 1;
             $card = new Card();
             $this->deck[] = $card;
-            $card->add_values($values[$index], $colors[$index]);
+            $card->addValues($values[$index], $colors[$index]);
         }
     }
 

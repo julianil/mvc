@@ -13,9 +13,10 @@ class Card
         $this->color = null;
     }
 
-    public function draw_card(): array
+    public function drawCard(): array
     {
         $value = random_int(1, 13);
+        $this->value = $value;
         if ($value == 1) {
             $this->value = "A";
         } elseif ($value == 11) {
@@ -24,8 +25,6 @@ class Card
             $this->value = "Q";
         } elseif ($value == 13) {
             $this->value = "K";
-        } else {
-            $this->value = $value;
         }
 
         $color = random_int(1, 4);
@@ -42,10 +41,10 @@ class Card
         return array($this->value, $this->color);
     }
 
-    public function add_values($card_value, $card_color): array
+    public function addValues($cardValue, $cardColor): array
     {
-        $this->value = $card_value;
-        $this->color = $card_color;
+        $this->value = $cardValue;
+        $this->color = $cardColor;
 
         return array($this->value, $this->color);
     }

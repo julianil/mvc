@@ -18,16 +18,19 @@ class CardGraphic extends Card
 
     public function getAsString(): string
     {
-        $card_color = $this->color;
-        if ($card_color == "♣") {
+        $cardColor = $this->color;
+        if ($cardColor == "♣") {
             $color = 1;
-        } elseif ($card_color == "♠") {
+        } elseif ($cardColor == "♠") {
             $color = 2;
-        } elseif ($card_color == "♥") {
+        } elseif ($cardColor == "♥") {
             $color = 3;
-        } elseif ($card_color == "♦") {
+        } elseif ($cardColor == "♦") {
             $color = 4;
         }
-        return "{$this->representation[$color - 1]} {$this->value}";
+        if (isset($color)) {
+            return "{$this->representation[$color - 1]} {$this->value}";
+        }
+        return "No color {$this->value}";
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Exception;
 use App\Card\DeckOfCards;
 use App\Card\Card;
 use App\Card\CardHand;
@@ -69,12 +70,12 @@ class LuckyControllerTwig extends AbstractController
     #[Route("/card/deck", name: "deck")]
     public function deck(): Response
     {
-        $full_deck = new DeckOfCards();
+        $fullDeck = new DeckOfCards();
 
-        $full_deck->add_cards();
+        $fullDeck->addCards();
 
         $data = [
-            "get_cards" => $full_deck->getString(),
+            "get_cards" => $fullDeck->getString(),
         ];
 
         return $this->render('card/deck.html.twig', $data);
@@ -83,14 +84,14 @@ class LuckyControllerTwig extends AbstractController
     #[Route("/card/deck/shuffel", name: "shuffel")]
     public function shuffel(): Response
     {
-        $full_deck = new DeckOfCards();
+        $fullDeck = new DeckOfCards();
 
-        $full_deck->add_cards();
+        $fullDeck->addCards();
 
-        $full_deck->shuffleDeck();
+        $fullDeck->shuffleDeck();
 
         $data = [
-            'cards' => $full_deck->getString(),
+            'cards' => $fullDeck->getString(),
         ];
 
         return $this->render('card/deck/shuffel.html.twig', $data);
@@ -104,13 +105,13 @@ class LuckyControllerTwig extends AbstractController
         //$card = new CardGraphic();
 
         $num = 1;
-        $amount_of_cards = $session->get("total_cards");
-        $session->set("total_cards", ($amount_of_cards - $num));
+        $amountOfCards = $session->get("total_cards");
+        $session->set("total_cards", ($amountOfCards - $num));
 
         $data = [
             'num_cards' => $num,
             'num_cards_left' => $session->get("total_cards"),
-            'card_array' => $card->draw_card(),
+            'card_array' => $card->drawCard(),
             'drawn_card' => $card->getAsString(),
         ];
 
@@ -118,7 +119,7 @@ class LuckyControllerTwig extends AbstractController
     }
 
     #[Route("/card/deck/draw/{num<\d+>}", name: "draw_num_cards")]
-    public function draw_cards(
+    public function drawCards(
         int $num,
         SessionInterface $session
     ): Response {
@@ -131,10 +132,10 @@ class LuckyControllerTwig extends AbstractController
             $hand->add(new Card());
         }
 
-        $hand->draw_card();
+        $hand->drawCard();
 
-        $amount_of_cards = $session->get("total_cards");
-        $session->set("total_cards", ($amount_of_cards - $num));
+        $amountOfCards = $session->get("total_cards");
+        $session->set("total_cards", ($amountOfCards - $num));
 
         $data = [
             "num_cards" => $hand->getNumberCards(),

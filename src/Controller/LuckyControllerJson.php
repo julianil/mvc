@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Exception;
 use App\Card\DeckOfCards;
 use App\Card\Card;
 use App\Card\CardHand;
@@ -37,20 +38,19 @@ class LuckyControllerJson extends AbstractController
 
         if ($numCards == 1) {
             return $this->redirectToRoute('api_draw_get', $data);
-        } else {
-            return $this->redirectToRoute('api_draw_many_get', $data);
         }
+        return $this->redirectToRoute('api_draw_many_get', $data);
     }
 
     #[Route("/api/quote", name: "api_quote")]
     public function jsonNumber(): Response
     {
-        $quotes_array = array("You have to somehow convince yourself of the magic of life. Around every corner, a new adventure... - Marianne Zetterström",
+        $quotesArray = array("You have to somehow convince yourself of the magic of life. Around every corner, a new adventure... - Marianne Zetterström",
         "To cover a fault with a lie is to replace a stain with a hole. - Ferdinand Von Schirr",
         "Nothing is impossible. The impossible just takes a little longer. - Winston Churchill",
         "Tis better to have loved and lost than never to have loved at all. - Alfred Lord Tennyson");
 
-        $quote = $quotes_array[array_rand($quotes_array)];
+        $quote = $quotesArray[array_rand($quotesArray)];
 
         $timezone = date_default_timezone_get();
         date_default_timezone_set($timezone);
@@ -73,12 +73,12 @@ class LuckyControllerJson extends AbstractController
     #[Route("/api/deck", name: "api_deck")]
     public function jsonSortedDeck(): Response
     {
-        $full_deck = new DeckOfCards();
+        $fullDeck = new DeckOfCards();
 
-        $full_deck->add_cards();
+        $fullDeck->addCards();
 
         $data = [
-            "deck_of_cards" => $full_deck->getString(),
+            "deck_of_cards" => $fullDeck->getString(),
         ];
 
         $response = new JsonResponse($data);
@@ -91,14 +91,14 @@ class LuckyControllerJson extends AbstractController
     #[Route("/api/deck/shuffle", name: "api_shuffle")]
     public function jsonShuffelDeck(): Response
     {
-        $full_deck = new DeckOfCards();
+        $fullDeck = new DeckOfCards();
 
-        $full_deck->add_cards();
+        $fullDeck->addCards();
 
-        $full_deck->shuffleDeck();
+        $fullDeck->shuffleDeck();
 
         $data = [
-            'shuffled_deck' => $full_deck->getString(),
+            'shuffled_deck' => $fullDeck->getString(),
         ];
 
         $response = new JsonResponse($data);
@@ -109,15 +109,15 @@ class LuckyControllerJson extends AbstractController
     }
 
     #[Route("/api/deck/draw", name: "api_draw_get", methods: ['GET'])]
-    public function Draw(
+    public function drawACard(
         SessionInterface $session
     ): Response {
         $card = new Card();
-        $card->draw_card();
+        $card->drawCard();
 
         $num = 1;
-        $amount_of_cards = $session->get("total_cards");
-        $session->set("total_cards", ($amount_of_cards - $num));
+        $amountOfCards = $session->get("total_cards");
+        $session->set("total_cards", ($amountOfCards - $num));
 
         $data = [
             'num_cards' => $num,
@@ -133,12 +133,12 @@ class LuckyControllerJson extends AbstractController
     }
 
     #[Route("/api/deck/draw/{num<\d+>}", name: "api_draw_many_get", methods: ['GET'])]
-    public function DrawMany(
+    public function drawMany(
         SessionInterface $session
     ): Response {
         $numCards = $session->get("drawn_cards");
-        $amount_of_cards = $session->get("total_cards");
-        $session->set("total_cards", ($amount_of_cards - $numCards));
+        $amountOfCards = $session->get("total_cards");
+        $session->set("total_cards", ($amountOfCards - $numCards));
 
         if ($numCards > 52) {
             throw new \Exception("No more cards in the pile");
@@ -149,7 +149,7 @@ class LuckyControllerJson extends AbstractController
             $hand->add(new Card());
         }
 
-        $hand->draw_card();
+        $hand->drawCard();
 
         $data = [
             "num_cards" => $numCards,

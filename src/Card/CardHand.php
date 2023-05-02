@@ -13,10 +13,10 @@ class CardHand
         $this->hand[] = $card;
     }
 
-    public function draw_card(): void
+    public function drawCard(): void
     {
         foreach ($this->hand as $card) {
-            $card->draw_card();
+            $card->drawCard();
         }
     }
 
