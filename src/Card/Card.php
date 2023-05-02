@@ -54,6 +54,11 @@ class Card
         return $this->value;
     }
 
+    public function getValueString(): string
+    {
+        return $this->value;
+    }
+
     public function getColor(): string
     {
         return $this->color;

@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card{% endblock %}
+
+{% block body %}
+<p>Du har {{ total_score }} poäng</p>
+    <div class="all_cards">
+        {% for card in hand_of_cards %}
+            <div class="card-red">
+                {{ card }}
+            </div>
+        {% endfor %}
+    </div>
+    <form method="post" action="">
+        <input type="submit" name="do_it" value="Dra kort">
+    </form>
+    <form method="post" action="">
+        <input type="submit" name="do_it" value="Lås omgång">
+    </form>
+{% endblock %}

@@ -163,4 +163,22 @@ class LuckyControllerJson extends AbstractController
         );
         return $response;
     }
+
+    #[Route("/api/game", name: "api_game")]
+    public function jsonGame(): Response
+    {
+        $fullDeck = new DeckOfCards();
+
+        $fullDeck->addCards();
+
+        $data = [
+            "deck_of_cards" => $fullDeck->getString(),
+        ];
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() |  JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+        );
+        return $response;
+    }
 }

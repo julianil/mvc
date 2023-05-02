@@ -28,5 +28,9 @@
                 <input type="submit" name="do_it" value="Dra kort">
             </form>
         </div>
+        <div class="api">
+            <p>Här finner du den nuvarande ställningen den pågående omgången av spelet 21.</p>
+            <button><a href="{{ path('api_game') }}">Spelställning</a></button>
+        </div>
     </div>
 {% endblock %}

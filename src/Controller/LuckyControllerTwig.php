@@ -46,8 +46,15 @@ class LuckyControllerTwig extends AbstractController
     }
 
     #[Route("/card", name: "card_init_get", methods: ['GET'])]
-    public function card(): Response
+    public function card(
+        SessionInterface $session
+    ): Response
     {
+        $fullDeck = new DeckOfCards();
+
+        $fullDeck->addCards();
+
+        $session->set("current_deck", $fullDeck);
         return $this->render('card.html.twig');
     }
 
@@ -68,11 +75,11 @@ class LuckyControllerTwig extends AbstractController
     }
 
     #[Route("/card/deck", name: "deck")]
-    public function deck(): Response
+    public function deck(
+        SessionInterface $session
+    ): Response
     {
-        $fullDeck = new DeckOfCards();
-
-        $fullDeck->addCards();
+        $fullDeck = $session->get("current_deck");
 
         $data = [
             "get_cards" => $fullDeck->getString(),
@@ -82,11 +89,11 @@ class LuckyControllerTwig extends AbstractController
     }
 
     #[Route("/card/deck/shuffel", name: "shuffel")]
-    public function shuffel(): Response
+    public function shuffel(
+        SessionInterface $session
+    ): Response
     {
-        $fullDeck = new DeckOfCards();
-
-        $fullDeck->addCards();
+        $fullDeck = $session->get("current_deck");
 
         $fullDeck->shuffleDeck();
 
@@ -127,12 +134,13 @@ class LuckyControllerTwig extends AbstractController
             throw new \Exception("No more cards in the pile");
         }
 
+        $deck = $session->get("current_deck");
         $hand = new CardHand();
         for ($i = 1; $i <= $num; $i++) {
             $hand->add(new Card());
         }
 
-        $hand->drawCard();
+        $hand->drawCard($deck);
 
         $amountOfCards = $session->get("total_cards");
         $session->set("total_cards", ($amountOfCards - $num));
@@ -144,5 +152,60 @@ class LuckyControllerTwig extends AbstractController
         ];
 
         return $this->render('card/deck/draw_many.html.twig', $data);
+    }
+
+    #[Route("/game", name: "game_init_get", methods: ['GET'])]
+    public function game(
+        SessionInterface $session
+    ): Response
+    {
+        $hand = new CardHand();
+        $session->set("hand", $hand);
+        $deck = new DeckOfCards();
+        $deck->addCards();
+        $session->set("deck", $deck);
+        $session->set("points", 0);
+
+        return $this->render('game.html.twig');
+    }
+
+    #[Route("/cardgame", name: "card_game", methods: ['GET'])]
+    public function cardGame(
+        SessionInterface $session
+    ): Response {
+
+        $hand = $session->get("hand");
+        $session->set("points", $hand->getScoreHand());
+        $score = $session->get("points");
+        var_dump($score);
+
+        $data = [
+            "hand_of_cards" => $hand->getString(),
+            "total_score" => $score,
+        ];
+
+        return $this->render('/cardgame.html.twig', $data);
+    }
+
+    #[Route("/cardgame", name: "card_game_post", methods: ['POST'])]
+    public function gameDraw(
+        SessionInterface $session
+    ): Response {
+
+        $deck = $session->get("deck");
+        $hand = $session->get("hand");
+
+        $hand->add(new Card());
+        $hand->drawCard($deck);
+
+        $session->set("hand", $hand);
+
+        return $this->redirectToRoute('card_game');
+    }
+
+    #[Route("/game/doc", name: "game_doc")]
+    public function gameDoc(): Response {
+
+        return $this->render('/gamedoc.html.twig');
     }
 }
