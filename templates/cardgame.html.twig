@@ -3,7 +3,18 @@
 {% block title %}Card{% endblock %}
 
 {% block body %}
-<p>Du har {{ total_score }} poäng</p>
+    <div class="game-buttons">
+        {% if (total_score < 21) %}
+            <form method="post" action="">
+                <input type="submit" name="do_it" value="Dra kort">
+            </form>
+        {% endif %}
+        {% if (num_cards > 1) %}
+            <button><a href="{{ path('game_result') }}">Lås hand</a></button>
+        {% endif %}
+     </div>
+    <h3>Din hand</h3>
+    <h4>Du har {{ total_score }} poäng</h4>
     <div class="all_cards">
         {% for card in hand_of_cards %}
             <div class="card-red">
@@ -11,10 +22,4 @@
             </div>
         {% endfor %}
     </div>
-    <form method="post" action="">
-        <input type="submit" name="do_it" value="Dra kort">
-    </form>
-    <form method="post" action="">
-        <input type="submit" name="do_it" value="Lås omgång">
-    </form>
 {% endblock %}

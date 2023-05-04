@@ -9,6 +9,14 @@
 Skapa ett flödesschema som representerar hur du tänker lösa grunderna i spelet. Resultatet kan du placera som en bild i webbsidan för dokumentationen. Det behöver inte vara en komplett lösning, en dellösning räcker bra.<br><br>
 
 Skapa psuedokod som visar hur du tänker lösa delar av spelet. Du kan spara resultatet som text eller bild men visa upp det i webbsidan för dokumentationen. Det behöver inte vara en komplett lösning, en dellösning räcker bra.<br><br>
-
-Fundera igenom vilka klasser du behöver för att implementera spelet. Beskriv klasserna i text med klassens namn och en mening som beskriver vad klassens syfte är. Håll det kort och enkelt.</p>
+</p>
+<p>Istället för att implemtera en helt nmhy klass för spelet så har jag valt att utvidga de klasser som jag redan skapat. Jag har främst arbetet med CardHand-klassen och där lagt till ett antal nya funktioner samt justerat vissa av de gamla funktionera.
+Jag la till fyra nya funktioner i klassen, drawOneCard, bankHand, getScoreHand och getWinner. DrawOneCard ger endast det senast tillagda kortet i handen ett värde, istället för att loopa igenom hela handen och ge alla kort nya värden. Denna funktion var nödvändig för att spelar skulle kunna
+lägga till kort i handen succesivt. Funktionen getScoreHand räknar ut hur mycket en hand med kort är värd. bankHand drar bankens hand, denna valde jag att göra som en while-loop som adderar ett nytt kort till handen och ger det ett värde sålänge totalvärdet för handen inte överstiger 15, då slutar loopen.
+Slutligen la jag till en enkel funktion, getWinner, som baserat på reglerna avgör om banken eller spelaren vann och retunerar detta i form av en sträng.
+        <div class="flow-img">
+            <a href="{{ asset('img/flowchart.png') }}">
+                <img src="{{ asset('img/flowchart.png') }}" alt="">
+            </a>
+        </div>
 {% endblock %}

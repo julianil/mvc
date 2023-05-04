@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card{% endblock %}
+
+{% block body %}
+    {% if (winner is same as "bank") %}
+        <div class="winner-message">
+            <h2>Ajdå, banken vann!</h2>
+        </div>
+    {% endif %}
+    {% if (winner is same as "player") %}
+        <div class="winner-message">
+            <h2>Grattis, du vann!</h2>
+        </div>
+    {% endif %}
+    <button><a href="{{ path('game_init_get') }}">Starta om</a></button>  
+    <h3>Datorns hand</h3>
+    <h4>{{ total_score_computer }} poäng</h4>
+    <div class="all_cards">
+        {% for card in computer_hand %}
+            <div class="card-red">
+                {{ card }}
+            </div>
+        {% endfor %}
+    </div>
+    <h3>Din hand</h3>
+    <h4>{{ total_score }} poäng</h4>
+    <div class="all_cards">
+        {% for card in player_hand %}
+            <div class="card-red">
+                {{ card }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -21,6 +21,22 @@ class DeckOfCards
         }
     }
 
+    public function updateDeck($hand): void
+    {
+        $lenght = $hand->getNumberCards();
+        $last_card = end($hand)[$lenght-1];
+        foreach ($this->deck as $card) {
+            if ($card->getValueString() === $last_card->getValueString() AND $card->getColor() === $last_card->getColor()) {
+                $key = array_search($card, $this->deck);
+                unset($this->deck[$key]);
+            }
+        }
+        //foreach ($deckArray as $card) {
+            //$this->deck[] = $card;
+        //}
+        //return $this->deck;
+    }
+
     public function shuffleDeck(): void
     {
         shuffle($this->deck);

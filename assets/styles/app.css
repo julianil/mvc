@@ -201,6 +201,28 @@ input[type=number] {
     color: red;
 }
 
+.winner-message {
+    margin-bottom: 15px;
+    background-color: #8484ba;
+    color: white;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.game-buttons {
+    display: flex;
+    margin-top: 15px;
+}
+
+.game-buttons button, form {
+    margin-right: 10px;
+}
+
+.flow-img img {
+    max-width: 800px;
+}
+
 footer {
     background-color: rgb(132, 132, 186);
     min-height: 150px;

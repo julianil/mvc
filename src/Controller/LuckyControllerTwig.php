@@ -48,8 +48,7 @@ class LuckyControllerTwig extends AbstractController
     #[Route("/card", name: "card_init_get", methods: ['GET'])]
     public function card(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $fullDeck = new DeckOfCards();
 
         $fullDeck->addCards();
@@ -77,8 +76,7 @@ class LuckyControllerTwig extends AbstractController
     #[Route("/card/deck", name: "deck")]
     public function deck(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $fullDeck = $session->get("current_deck");
 
         $data = [
@@ -91,8 +89,7 @@ class LuckyControllerTwig extends AbstractController
     #[Route("/card/deck/shuffel", name: "shuffel")]
     public function shuffel(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $fullDeck = $session->get("current_deck");
 
         $fullDeck->shuffleDeck();
@@ -140,7 +137,7 @@ class LuckyControllerTwig extends AbstractController
             $hand->add(new Card());
         }
 
-        $hand->drawCard($deck);
+        $hand->drawCard();
 
         $amountOfCards = $session->get("total_cards");
         $session->set("total_cards", ($amountOfCards - $num));
@@ -157,9 +154,10 @@ class LuckyControllerTwig extends AbstractController
     #[Route("/game", name: "game_init_get", methods: ['GET'])]
     public function game(
         SessionInterface $session
-    ): Response
-    {
+    ): Response {
         $hand = new CardHand();
+        $hand->add(new Card());
+        $hand->drawOneCard();
         $session->set("hand", $hand);
         $deck = new DeckOfCards();
         $deck->addCards();
@@ -177,11 +175,14 @@ class LuckyControllerTwig extends AbstractController
         $hand = $session->get("hand");
         $session->set("points", $hand->getScoreHand());
         $score = $session->get("points");
-        var_dump($score);
+        $current_deck = $session->get("deck");
+        $current_deck->updateDeck($hand);
+        $session->set("deck", $current_deck);
 
         $data = [
             "hand_of_cards" => $hand->getString(),
             "total_score" => $score,
+            "num_cards" => $hand->getNumberCards(),
         ];
 
         return $this->render('/cardgame.html.twig', $data);
@@ -192,19 +193,47 @@ class LuckyControllerTwig extends AbstractController
         SessionInterface $session
     ): Response {
 
-        $deck = $session->get("deck");
         $hand = $session->get("hand");
 
         $hand->add(new Card());
-        $hand->drawCard($deck);
+        $hand->drawOneCard();
 
         $session->set("hand", $hand);
 
         return $this->redirectToRoute('card_game');
     }
 
+    #[Route("/cardgame_result", name: "game_result", methods: ['GET'])]
+    public function gameResult(
+        SessionInterface $session
+    ): Response {
+
+        $deck = $session->get("deck");
+        $player = $session->get("hand");
+        $playerScore = $session->get("points");
+
+        $hand = new CardHand();
+
+        $hand->bankHand($hand);
+        $score = $hand->getScoreHand();
+
+        $winner = $hand->getWinner($player, $hand);
+
+        $data = [
+            "computer_hand" => $hand->getString(),
+            "player_hand" => $player->getString(),
+            "total_score" => $playerScore,
+            "total_score_computer" => $score,
+            "winner" => $winner,
+            "deck" => $deck->getString(),
+        ];
+
+        return $this->render('/cardgame_result.html.twig', $data);
+    }
+
     #[Route("/game/doc", name: "game_doc")]
-    public function gameDoc(): Response {
+    public function gameDoc(): Response
+    {
 
         return $this->render('/gamedoc.html.twig');
     }

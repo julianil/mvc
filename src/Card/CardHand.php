@@ -13,15 +13,16 @@ class CardHand
         $this->hand[] = $card;
     }
 
-    public function drawCard($deck): void
+    public function drawCard(): void
     {
-        $deckLenght = $deck->getNumberCards();
-        
         foreach ($this->hand as $card) {
-            $deck_array = $deck->getString();
-            $cardValue = $deck_array[random_int(0, $deckLenght - 1)];
-            $card->addValues($cardValue[0], $cardValue[2]);
+            $card->drawCard();
         }
+    }
+
+    public function drawOneCard(): void
+    {
+        end($this->hand)->drawCard();
     }
 
     public function getNumberCards(): int
@@ -49,10 +50,33 @@ class CardHand
                 $points = 12;
             } elseif ($points == "K") {
                 $points = 13;
+            } elseif ($points == "A") {
+                $points = 1;
             }
             $score += intval($points);
         }
         return $score;
+    }
+
+    public function bankHand($hand): void
+    {
+        while ($hand->getScoreHand() < 15) {
+            $hand->add(new Card());
+            $hand->drawOneCard();
+        }
+    }
+
+    public function getWinner($player, $bank): string
+    {
+        $winner = "";
+        $playerScore = $player->getScoreHand();
+        $bankScore = $bank->getScoreHand();
+        if ($playerScore === $bankScore or $playerScore > 21) {
+            $winner = "bank";
+        } else {
+            $winner = "player";
+        }
+        return $winner;
     }
 
     public function getString(): array

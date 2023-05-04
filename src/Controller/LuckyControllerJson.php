@@ -165,14 +165,15 @@ class LuckyControllerJson extends AbstractController
     }
 
     #[Route("/api/game", name: "api_game")]
-    public function jsonGame(): Response
-    {
-        $fullDeck = new DeckOfCards();
-
-        $fullDeck->addCards();
+    public function jsonGame(
+        SessionInterface $session
+    ): Response {
+        $player = $session->get("hand");
+        $playerScore = $session->get("points");
 
         $data = [
-            "deck_of_cards" => $fullDeck->getString(),
+            "player_score" => $playerScore,
+            "player_hand" => $player->getString(),
         ];
 
         $response = new JsonResponse($data);

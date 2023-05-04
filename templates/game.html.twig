@@ -4,31 +4,29 @@
 
 {% block body %}
     <h1>Spel: 21</h1>
+    <div class="game-buttons">
+        <button><a href="{{ path('card_game') }}">Starta spel</a></button>
+        <button><a href="{{ path('game_doc') }}">Dokumentation</a></button>
+    </div>
     <p>Jag har 4 stycken klasser: Card, DeckOfCards, CardHand och CardGraphic. Grunden är skapad i klassen Card som har två "protected" variabler, value och color. Dessa representerar siffran samt
     färgen på kortet. Klassen har även ett antal metoder som gör att den går att jobba med, exempelvis draw_card som slumpar fram ett värde och en färg på ett kort. Vi har även tre get-metoder som 
     ger oss ett korts värde, färg eller både och som en string. Klassen Card har jag även två kompositioner, DeckOfCards samt CardHand.<br><br>
     DeckOfCards klassen representerar en kortlek med 52 Card-objekt i sig. I denna klass finns också ett antal metoder som liknar de i Card klassen men som är anpassade för en array, då DeckOfCards är en array av flera Card-objekt. Bland annat finns metoden add_cards som fyller på en 
     ny deck med 52 olika kort i sorterad ordning. Vi har även metoden shuffleDeck som slumpar om ordningen på Card-objekten i DeckOfCard-objektet. Även i denna klass finns det tre get metoder. En som retunerar mängden Card-objekt i DeckOfCard-objektet, 
     en som retunerar alla värden samt en som ger oss DeckOfCards-objektet som en array.</p>
-    <div class="two-columns">
-        <div class="game-text">
-            <h3>Regler</h3>
-            <p>Spelets idé är att med två eller flera kort försöka uppnå det sammanlagda värdet 21, eller komma så nära som möjligt utan att överskrida 21. Ess är värt 1 eller 14.<br><br>
-            En spelrunda kan se ut så här när en spelare spelar mot banken.<br>
-            Spelplanen visas och spelaren och banken har inte tagit några kort.<br>
-            Spelaren tar ett kort. Kortet visas.<br>
-            Spelaren kan bestämma att stanna eller ta ytterligare ett kort.<br>
-            Om spelaren får över 21 vinner banken.<br>
-            När spelaren stannar så är det bankens tur.<br>
-            Banken är inte medveten om spelarens korthand.<br>
-            Banken plockar kort tills den stannar eller har över 21.<br>
-            Banken vinner vid lika eller om banken har mer än spelaren.<br>
-            Spelaren vinner om banken får över 21.<br>
-            Därefter kan man påbörja en ny omgång.</p>
-        </div>
-        <div class="all-games-nav">
-            <button><a href="{{ path('card_game') }}">Starta spel</a></button><br>
-            <button><a href="{{ path('game_doc') }}">Dokumentation</a></button>
-        </div>
+    <div class="game-text">
+        <h3>Regler</h3>
+        <p>Spelets idé är att med två eller flera kort försöka uppnå det sammanlagda värdet 21, eller komma så nära som möjligt utan att överskrida 21. Ess är värt 1 eller 14.<br><br>
+        En spelrunda kan se ut så här när en spelare spelar mot banken.<br>
+        Spelplanen visas och spelaren och banken har inte tagit några kort.<br>
+        Spelaren tar ett kort. Kortet visas.<br>
+        Spelaren kan bestämma att stanna eller ta ytterligare ett kort.<br>
+        Om spelaren får över 21 vinner banken.<br>
+        När spelaren stannar så är det bankens tur.<br>
+        Banken är inte medveten om spelarens korthand.<br>
+        Banken plockar kort tills den stannar eller har över 21.<br>
+        Banken vinner vid lika eller om banken har mer än spelaren.<br>
+        Spelaren vinner om banken får över 21.<br>
+        Därefter kan man påbörja en ny omgång.</p>
     </div>
 {% endblock %}
