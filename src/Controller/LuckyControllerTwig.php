@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use Exception;
 use App\Card\DeckOfCards;
 use App\Card\Card;
 use App\Card\CardHand;
@@ -128,10 +127,9 @@ class LuckyControllerTwig extends AbstractController
         SessionInterface $session
     ): Response {
         if ($num > 52) {
-            throw new \Exception("No more cards in the pile");
+            var_dump("No more cards in the pile");
         }
 
-        $deck = $session->get("current_deck");
         $hand = new CardHand();
         for ($i = 1; $i <= $num; $i++) {
             $hand->add(new Card());
@@ -149,92 +147,5 @@ class LuckyControllerTwig extends AbstractController
         ];
 
         return $this->render('card/deck/draw_many.html.twig', $data);
-    }
-
-    #[Route("/game", name: "game_init_get", methods: ['GET'])]
-    public function game(
-        SessionInterface $session
-    ): Response {
-        $hand = new CardHand();
-        $hand->add(new Card());
-        $hand->drawOneCard();
-        $session->set("hand", $hand);
-        $deck = new DeckOfCards();
-        $deck->addCards();
-        $session->set("deck", $deck);
-        $session->set("points", 0);
-
-        return $this->render('game.html.twig');
-    }
-
-    #[Route("/cardgame", name: "card_game", methods: ['GET'])]
-    public function cardGame(
-        SessionInterface $session
-    ): Response {
-
-        $hand = $session->get("hand");
-        $session->set("points", $hand->getScoreHand());
-        $score = $session->get("points");
-        $current_deck = $session->get("deck");
-        $current_deck->updateDeck($hand);
-        $session->set("deck", $current_deck);
-
-        $data = [
-            "hand_of_cards" => $hand->getString(),
-            "total_score" => $score,
-            "num_cards" => $hand->getNumberCards(),
-        ];
-
-        return $this->render('/cardgame.html.twig', $data);
-    }
-
-    #[Route("/cardgame", name: "card_game_post", methods: ['POST'])]
-    public function gameDraw(
-        SessionInterface $session
-    ): Response {
-
-        $hand = $session->get("hand");
-
-        $hand->add(new Card());
-        $hand->drawOneCard();
-
-        $session->set("hand", $hand);
-
-        return $this->redirectToRoute('card_game');
-    }
-
-    #[Route("/cardgame_result", name: "game_result", methods: ['GET'])]
-    public function gameResult(
-        SessionInterface $session
-    ): Response {
-
-        $deck = $session->get("deck");
-        $player = $session->get("hand");
-        $playerScore = $session->get("points");
-
-        $hand = new CardHand();
-
-        $hand->bankHand($hand);
-        $score = $hand->getScoreHand();
-
-        $winner = $hand->getWinner($player, $hand);
-
-        $data = [
-            "computer_hand" => $hand->getString(),
-            "player_hand" => $player->getString(),
-            "total_score" => $playerScore,
-            "total_score_computer" => $score,
-            "winner" => $winner,
-            "deck" => $deck->getString(),
-        ];
-
-        return $this->render('/cardgame_result.html.twig', $data);
-    }
-
-    #[Route("/game/doc", name: "game_doc")]
-    public function gameDoc(): Response
-    {
-
-        return $this->render('/gamedoc.html.twig');
     }
 }

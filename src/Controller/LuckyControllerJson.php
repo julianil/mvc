@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use Exception;
 use App\Card\DeckOfCards;
 use App\Card\Card;
 use App\Card\CardHand;
@@ -132,27 +131,28 @@ class LuckyControllerJson extends AbstractController
         return $response;
     }
 
-    #[Route("/api/deck/draw/{num<\d+>}", name: "api_draw_many_get", methods: ['GET'])]
+    #[Route("/api/deck/draw/{num<\d+>}", name: "api_draw_many_get")]
     public function drawMany(
+        int $num,
         SessionInterface $session
     ): Response {
-        $numCards = $session->get("drawn_cards");
-        $amountOfCards = $session->get("total_cards");
-        $session->set("total_cards", ($amountOfCards - $numCards));
 
-        if ($numCards > 52) {
-            throw new \Exception("No more cards in the pile");
+        $amountOfCards = $session->get("total_cards");
+        $session->set("total_cards", ($amountOfCards - $num));
+
+        if ($num > 52) {
+            var_dump("No more cards in the pile");
         }
 
         $hand = new CardHand();
-        for ($i = 1; $i <= $numCards; $i++) {
+        for ($i = 1; $i <= $num; $i++) {
             $hand->add(new Card());
         }
 
         $hand->drawCard();
 
         $data = [
-            "num_cards" => $numCards,
+            "num_cards" => $num,
             'amount_cards_left' => $session->get("total_cards"),
             "drawn_cards" => $hand->getString(),
         ];

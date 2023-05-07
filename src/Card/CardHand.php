@@ -68,13 +68,11 @@ class CardHand
 
     public function getWinner($player, $bank): string
     {
-        $winner = "";
+        $winner = "player";
         $playerScore = $player->getScoreHand();
         $bankScore = $bank->getScoreHand();
         if ($playerScore === $bankScore or $playerScore > 21) {
             $winner = "bank";
-        } else {
-            $winner = "player";
         }
         return $winner;
     }

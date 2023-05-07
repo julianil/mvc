@@ -4,19 +4,27 @@
 
 {% block body %}
     <h1>Spel dokumentation</h1>
-    <p>Samla all din dokumentation i en webbsida under routen game/doc och länka till dokumentationssidan från din landningssida.<br><br>
-
-Skapa ett flödesschema som representerar hur du tänker lösa grunderna i spelet. Resultatet kan du placera som en bild i webbsidan för dokumentationen. Det behöver inte vara en komplett lösning, en dellösning räcker bra.<br><br>
-
-Skapa psuedokod som visar hur du tänker lösa delar av spelet. Du kan spara resultatet som text eller bild men visa upp det i webbsidan för dokumentationen. Det behöver inte vara en komplett lösning, en dellösning räcker bra.<br><br>
-</p>
-<p>Istället för att implemtera en helt nmhy klass för spelet så har jag valt att utvidga de klasser som jag redan skapat. Jag har främst arbetet med CardHand-klassen och där lagt till ett antal nya funktioner samt justerat vissa av de gamla funktionera.
-Jag la till fyra nya funktioner i klassen, drawOneCard, bankHand, getScoreHand och getWinner. DrawOneCard ger endast det senast tillagda kortet i handen ett värde, istället för att loopa igenom hela handen och ge alla kort nya värden. Denna funktion var nödvändig för att spelar skulle kunna
-lägga till kort i handen succesivt. Funktionen getScoreHand räknar ut hur mycket en hand med kort är värd. bankHand drar bankens hand, denna valde jag att göra som en while-loop som adderar ett nytt kort till handen och ger det ett värde sålänge totalvärdet för handen inte överstiger 15, då slutar loopen.
-Slutligen la jag till en enkel funktion, getWinner, som baserat på reglerna avgör om banken eller spelaren vann och retunerar detta i form av en sträng.
-        <div class="flow-img">
-            <a href="{{ asset('img/flowchart.png') }}">
-                <img src="{{ asset('img/flowchart.png') }}" alt="">
-            </a>
-        </div>
+    <p>Nedan finns flödesschemat för hur jag tänker att en omgång av spelet 21 ska gå till. Spelaren har egentligen bara ett val och det är om hen ska dra ett till kort eller inte, detta val återkommer igen och igne tills användaren väljer att lås sin hand, då avslutas spelet.
+    Hade man exempelvis valt att implemtera en kassa och ett bettningsystem så hade spelomgången istället avlsutas när spelaren eller bankens kassa tog slut, vilket hade gett ett något mer invecklat flödesschema.</p>
+    <div class="doc-img">
+        <a href="{{ asset('img/flowchart.png') }}">
+            <img src="{{ asset('img/flowchart.png') }}" alt="">
+        </a>
+    </div>
+    <p>Jag skrev innan jag började byggandet av spelet lite psuedokod för att skapa mig en uppfattning och fundera lite kring vilka typer av funktioner som jag skulle behöva. Jag klurade även kirng vad dessa funktioner skulle ha för syfte och villka andra funktioner som behövde kallas på i dessa funtkioner. Se psuedokoden för mina klassfunktioner nedan.</p>
+    <div class="doc-img">
+        <a href="{{ asset('img/psuedokod.png') }}">
+            <img src="{{ asset('img/psuedokod.png') }}" alt="">
+        </a>
+    </div>
+    <p>Istället för att implemtera en helt ny klass för spelet så har jag valt att utvidga de klasser som jag redan skapat. Jag har främst arbetet med CardHand-klassen och där lagt till ett antal nya funktioner samt justerat vissa av de gamla funktionera.<br>
+    Jag la till fyra nya funktioner i klassen, drawOneCard, bankHand, getScoreHand och getWinner. DrawOneCard ger endast det senast tillagda kortet i handen ett värde, istället för att loopa igenom hela handen och ge alla kort nya värden. Denna funktion var nödvändig för att spelar skulle kunna
+    lägga till kort i handen succesivt. Funktionen getScoreHand räknar ut hur mycket en hand med kort är värd. bankHand drar bankens hand, denna valde jag att göra som en while-loop som adderar ett nytt kort till handen och ger det ett värde sålänge totalvärdet för handen inte överstiger 15, då slutar loopen.
+    Slutligen la jag till en enkel funktion, getWinner, som baserat på reglerna avgör om banken eller spelaren vann och retunerar detta i form av en sträng.<br>
+    I DeckOfCards klassen la jag till funktionen updateDeck vars syfte är att uppdatera den nuvarande kortleken efter att ett kort dragit ur den. Detta var de främsta tilläggen jag behövde göra frö att mitt spel skulel fungera som jag hade tänkt. Se bilden nedan för ett uppdaterat UML-diagram.
+    <div class="doc-img">
+        <a href="{{ asset('img/uml-upd.png') }}">
+            <img src="{{ asset('img/uml-upd.png') }}" alt="">
+        </a>
+    </div>
 {% endblock %}

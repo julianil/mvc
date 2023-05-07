@@ -219,7 +219,13 @@ input[type=number] {
     margin-right: 10px;
 }
 
-.flow-img img {
+.doc-img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.doc-img img {
     max-width: 800px;
 }
 
