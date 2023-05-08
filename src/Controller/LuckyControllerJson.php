@@ -29,7 +29,6 @@ class LuckyControllerJson extends AbstractController
 
         $numCards = $request->request->get('num_cards');
         $session->set("drawn_cards", $numCards);
-        $session->set("total_cards", 52);
 
         $data = [
             "num" => $numCards,
@@ -111,17 +110,22 @@ class LuckyControllerJson extends AbstractController
     public function drawACard(
         SessionInterface $session
     ): Response {
-        $card = new Card();
-        $card->drawCard();
+        $fullDeck = $session->get("current_deck");
 
-        $num = 1;
-        $amountOfCards = $session->get("total_cards");
-        $session->set("total_cards", ($amountOfCards - $num));
+        $hand = new CardHand();
+        for ($i = 1; $i <= 1; $i++) {
+            $hand->add(new Card());
+        }
+
+        $hand->drawCard($fullDeck->getString());
+
+        $fullDeck->updateDeck($fullDeck->getString(), $hand->getString());
+        $session->set("current_deck", ($fullDeck));
 
         $data = [
-            'num_cards' => $num,
-            'amount_cards_left' => $session->get("total_cards"),
-            'drawn_card' => $card->getAsString(),
+            'num_cards' => $hand->getNumberCards(),
+            'amount_cards_left' => $fullDeck->getNumberCards(),
+            'drawn_card' => $hand->getString(),
         ];
 
         $response = new JsonResponse($data);
@@ -136,9 +140,7 @@ class LuckyControllerJson extends AbstractController
         int $num,
         SessionInterface $session
     ): Response {
-
-        $amountOfCards = $session->get("total_cards");
-        $session->set("total_cards", ($amountOfCards - $num));
+        $fullDeck = $session->get("current_deck");
 
         if ($num > 52) {
             var_dump("No more cards in the pile");
@@ -149,11 +151,14 @@ class LuckyControllerJson extends AbstractController
             $hand->add(new Card());
         }
 
-        $hand->drawCard();
+        $hand->drawCard($fullDeck->getString());
+
+        $fullDeck->updateDeck($fullDeck->getString(), $hand->getString());
+        $session->set("current_deck", ($fullDeck));
 
         $data = [
-            "num_cards" => $num,
-            'amount_cards_left' => $session->get("total_cards"),
+            "num_cards" => $hand->getNumberCards(),
+            'num_cards_left' => $fullDeck->getNumberCards(),
             "drawn_cards" => $hand->getString(),
         ];
 

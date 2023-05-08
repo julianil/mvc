@@ -19,12 +19,12 @@ class LuckyControllerGame extends AbstractController
     public function game(
         SessionInterface $session
     ): Response {
-        $hand = new CardHand();
-        $hand->add(new Card());
-        $hand->drawOneCard();
-        $session->set("hand", $hand);
         $deck = new DeckOfCards();
         $deck->addCards();
+        $hand = new CardHand();
+        $hand->add(new Card());
+        $hand->drawOneCard($deck->getString());
+        $session->set("hand", $hand);
         $session->set("deck", $deck);
         $session->set("points", 0);
 
@@ -40,7 +40,7 @@ class LuckyControllerGame extends AbstractController
         $session->set("points", $hand->getScoreHand());
         $score = $session->get("points");
         $currentDeck = $session->get("deck");
-        $currentDeck->updateDeck($hand);
+        $currentDeck->updateDeck($currentDeck->getString(), $hand->getString());
         $session->set("deck", $currentDeck);
 
         $data = [
@@ -56,11 +56,12 @@ class LuckyControllerGame extends AbstractController
     public function gameDraw(
         SessionInterface $session
     ): Response {
+        $deck = $session->get("deck");
 
         $hand = $session->get("hand");
 
         $hand->add(new Card());
-        $hand->drawOneCard();
+        $hand->drawOneCard($deck->getString());
 
         $session->set("hand", $hand);
 
@@ -78,7 +79,7 @@ class LuckyControllerGame extends AbstractController
 
         $hand = new CardHand();
 
-        $hand->bankHand($hand);
+        $hand->bankHand($hand, $deck);
         $score = $hand->getScoreHand();
 
         $winner = $hand->getWinner($player, $hand);

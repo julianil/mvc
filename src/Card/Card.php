@@ -41,6 +41,24 @@ class Card
         return array($this->value, $this->color);
     }
 
+    public function drawCardDeck($deck): array
+    {
+        $key = array_rand($deck);
+        $cardValue = $deck[$key];
+        $this->color = "♦";
+        if (str_contains($cardValue, "♣")) {
+            $this->color = "♣";
+        } elseif (str_contains($cardValue, "♠")) {
+            $this->color = "♠";
+        } elseif (str_contains($cardValue, "♥")) {
+            $this->color = "♥";
+        }
+
+        $this->value = $cardValue[0];
+
+        return array($this->value, $this->color);
+    }
+
     public function addValues($cardValue, $cardColor): array
     {
         $this->value = $cardValue;

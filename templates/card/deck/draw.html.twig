@@ -5,9 +5,11 @@
 {% block body %}
     <h1>Draget kort</h1>
     <div class="all_cards">
-        <div class="card-red">
-            {{ drawn_card }}
-        </div>
+        {% for card in drawn_card %}
+            <div class="card-red">
+                {{ card }}
+            </div>
+        {% endfor %}
     </div>
     <p>Antal dragna kort: {{ num_cards }}<br>
     Antal kort kvar i leken: {{ num_cards_left }}</p>

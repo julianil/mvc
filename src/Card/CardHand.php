@@ -13,16 +13,16 @@ class CardHand
         $this->hand[] = $card;
     }
 
-    public function drawCard(): void
+    public function drawCard($deck): void
     {
         foreach ($this->hand as $card) {
-            $card->drawCard();
+            $card->drawCardDeck($deck);
         }
     }
 
-    public function drawOneCard(): void
+    public function drawOneCard($deck): void
     {
-        end($this->hand)->drawCard();
+        end($this->hand)->drawCardDeck($deck);
     }
 
     public function getNumberCards(): int
@@ -58,11 +58,11 @@ class CardHand
         return $score;
     }
 
-    public function bankHand($hand): void
+    public function bankHand($hand, $deck): void
     {
         while ($hand->getScoreHand() < 15) {
             $hand->add(new Card());
-            $hand->drawOneCard();
+            $hand->drawOneCard($deck->getString());
         }
     }
 

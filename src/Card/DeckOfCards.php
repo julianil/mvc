@@ -21,14 +21,32 @@ class DeckOfCards
         }
     }
 
-    public function updateDeck($hand): void
+    public function updateDeck($deck, $hand): void
     {
-        $lenght = $hand->getNumberCards();
-        $lastCard = end($hand)[$lenght-1];
-        foreach ($this->deck as $card) {
-            if ($card->getValueString() === $lastCard->getValueString() and $card->getColor() === $lastCard->getColor()) {
-                $key = array_search($card, $this->deck);
-                unset($this->deck[$key]);
+        foreach ($hand as $card) {
+            if (in_array($card, $deck)) {
+                $key = array_search($card, $deck);
+                unset($deck[$key]);
+            }
+        }
+        $this->deck = [];
+        foreach ($deck as $cardValue) {
+            if (str_contains($cardValue, "♣")) {
+                $card = new Card();
+                $this->deck[] = $card;
+                $card->addValues($cardValue[0], "♣");
+            } elseif (str_contains($cardValue, "♠")) {
+                $card = new Card();
+                $this->deck[] = $card;
+                $card->addValues($cardValue[0], "♠");
+            } elseif (str_contains($cardValue, "♥")) {
+                $card = new Card();
+                $this->deck[] = $card;
+                $card->addValues($cardValue[0], "♥");
+            } elseif (str_contains($cardValue, "♦")) {
+                $card = new Card();
+                $this->deck[] = $card;
+                $card->addValues($cardValue[0], "♦");
             }
         }
     }
