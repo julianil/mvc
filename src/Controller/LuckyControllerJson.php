@@ -16,8 +16,12 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 class LuckyControllerJson extends AbstractController
 {
     #[Route("/api", name: "api_get", methods: ['GET'])]
-    public function jsonStart(): Response
-    {
+    public function jsonStart(
+        SessionInterface $session
+    ): Response {
+        $fullDeck = new DeckOfCards();
+        $fullDeck->addCards();
+        $session->set("deck", $fullDeck);
         return $this->render('api.html.twig');
     }
 
@@ -69,11 +73,10 @@ class LuckyControllerJson extends AbstractController
     }
 
     #[Route("/api/deck", name: "api_deck")]
-    public function jsonSortedDeck(): Response
-    {
-        $fullDeck = new DeckOfCards();
-
-        $fullDeck->addCards();
+    public function jsonSortedDeck(
+        SessionInterface $session
+    ): Response {
+        $fullDeck = $session->get("deck");
 
         $data = [
             "deck_of_cards" => $fullDeck->getString(),
@@ -87,13 +90,16 @@ class LuckyControllerJson extends AbstractController
     }
 
     #[Route("/api/deck/shuffle", name: "api_shuffle")]
-    public function jsonShuffelDeck(): Response
-    {
+    public function jsonShuffelDeck(
+        SessionInterface $session
+    ): Response {
         $fullDeck = new DeckOfCards();
 
         $fullDeck->addCards();
 
         $fullDeck->shuffleDeck();
+
+        $session->set("deck", $fullDeck);
 
         $data = [
             'shuffled_deck' => $fullDeck->getString(),
@@ -110,7 +116,7 @@ class LuckyControllerJson extends AbstractController
     public function drawACard(
         SessionInterface $session
     ): Response {
-        $fullDeck = $session->get("current_deck");
+        $fullDeck = $session->get("deck");
 
         $hand = new CardHand();
         for ($i = 1; $i <= 1; $i++) {
@@ -120,7 +126,7 @@ class LuckyControllerJson extends AbstractController
         $hand->drawCard($fullDeck->getString());
 
         $fullDeck->updateDeck($fullDeck->getString(), $hand->getString());
-        $session->set("current_deck", ($fullDeck));
+        $session->set("deck", ($fullDeck));
 
         $data = [
             'num_cards' => $hand->getNumberCards(),
@@ -140,7 +146,7 @@ class LuckyControllerJson extends AbstractController
         int $num,
         SessionInterface $session
     ): Response {
-        $fullDeck = $session->get("current_deck");
+        $fullDeck = $session->get("deck");
 
         if ($num > 52) {
             var_dump("No more cards in the pile");
@@ -154,7 +160,7 @@ class LuckyControllerJson extends AbstractController
         $hand->drawCard($fullDeck->getString());
 
         $fullDeck->updateDeck($fullDeck->getString(), $hand->getString());
-        $session->set("current_deck", ($fullDeck));
+        $session->set("deck", ($fullDeck));
 
         $data = [
             "num_cards" => $hand->getNumberCards(),

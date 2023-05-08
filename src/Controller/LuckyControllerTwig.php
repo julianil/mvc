@@ -89,7 +89,7 @@ class LuckyControllerTwig extends AbstractController
     public function shuffel(
         SessionInterface $session
     ): Response {
-        $fullDeck = $session->get("current_deck");
+        $fullDeck = new DeckOfCards();
 
         $fullDeck->shuffleDeck();
 
