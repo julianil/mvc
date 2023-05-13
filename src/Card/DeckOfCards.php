@@ -4,6 +4,11 @@ namespace App\Card;
 
 use App\Card\Card;
 
+/**
+* DeckOfCards class represents a normal playing deck with 52 cards. The containing methods creates, shuffles
+* and updates the deck as the game goes on.
+*/
+
 class DeckOfCards
 {
     private $deck = [];
@@ -59,15 +64,6 @@ class DeckOfCards
     public function getNumberCards(): int
     {
         return count($this->deck);
-    }
-
-    public function getValues(): array
-    {
-        $values = [];
-        foreach ($this->deck as $card) {
-            $values[] = $card->getValue();
-        }
-        return $values;
     }
 
     public function getString(): array

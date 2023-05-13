@@ -4,6 +4,12 @@ namespace App\Card;
 
 use App\Card\Card;
 
+/**
+* CardHand class represents a hand which can be filled with cards from the deck. The class also contains
+* methods necessary for playing the card game, one for counting the hands totalscore, one for drawing the
+* banks hand and one for naming the winner.
+*/
+
 class CardHand
 {
     private $hand = [];
@@ -28,15 +34,6 @@ class CardHand
     public function getNumberCards(): int
     {
         return count($this->hand);
-    }
-
-    public function getValues(): array
-    {
-        $values = [];
-        foreach ($this->hand as $card) {
-            $values[] = $card->getValue();
-        }
-        return $values;
     }
 
     public function getScoreHand(): int
