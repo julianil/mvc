@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ny bok{% endblock %}
+
+{% block body %}
+<div class="center-form">
+    <h1>Ny bok</h1>
+    <form method="post" action="" class="new_book_form">
+        <label for="name">Namn:</label><br>
+        <input type="text" name="name" id"name"><br>
+        <label for="name">ISBN:</label><br>
+        <input type="number" name="isbn"><br>
+        <label for="name">Författare:</label><br>
+        <input type="text" name="writer"><br>
+        <label for="name">Bildlänk:</label><br>
+        <input type="text" name="image"><br>
+        <label for="description">Beskrivning:</label><br>
+        <input type="text" name="description"><br>
+        <input type="submit" name="do_it" value="Lägg till bok">
+    </form>
+</div>
+{% endblock %}

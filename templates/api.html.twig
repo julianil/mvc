@@ -23,7 +23,7 @@
         </div>
         <div class="api">
             <p>Här finner du din hand med slumpmässigt dragna kort från kortleken.</p>
-            <form method="post" action="/api/deck/draw">
+            <form method="post" action="{{ path('api_draw_post') }}">
                 <input type="number" name="num_cards" min="1" max="52" value="1">
                 <input type="submit" name="do_it" value="Dra kort">
             </form>
@@ -31,6 +31,21 @@
         <div class="api">
             <p>Här finner du den nuvarande ställningen den pågående omgången av spelet 21.</p>
             <button><a href="{{ path('api_game') }}">Spelställning</a></button>
+        </div>
+        <div class="api">
+            <p>Här finner du hela bibliotekets utbud av böcker.</p>
+            <button><a href="{{ path('api_library_show_all') }}">Alla böcker</a></button>
+        </div>
+        <div class="api">
+            <p>Här kan du välja en bok att titta närmare på.</p>
+            <form method="post" action="{{ path('api_book_post') }}"">
+                <select class="book_select" name="isbn">
+                    {% for book in books %}
+                        <option value="{{ book.isbn }}">{{ book.name }}</option>
+                    {% endfor %}
+                </select><br>
+                <input type="submit" name="do_it" value="Titta på bok">
+            </form>
         </div>
     </div>
 {% endblock %}

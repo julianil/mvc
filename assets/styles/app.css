@@ -11,7 +11,7 @@ body {
 
 main {
     margin: 0 auto;
-    max-width: 1000px;
+    max-width: 1200px;
     min-height: 500px;
     padding-top: 30px;
     padding-left: 40px;
@@ -50,7 +50,7 @@ ul {
     display: flex;
     justify-content: space-between;
     list-style-type: none;
-    max-width: 400px;
+    max-width: 600px;
     height: 50px;
     align-items: center;
     font-size: 20px;
@@ -150,7 +150,7 @@ button, input[type=submit] {
 }
 
 input[type=number] {
-    max-width: 5em;
+    width: 5em;
     padding: 10px;
 }
 
@@ -172,8 +172,13 @@ input[type=number] {
     display: flex;
 }
 
+.book_select {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
 .api p {
-    width: 700px;
+    width: 600px;
 }
 
 .api button {
@@ -237,4 +242,95 @@ footer {
     text-align: center;
     margin-top: 40px;
     color: white;
+}
+
+.all_books {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.book {
+    width: 25vw;
+    border: solid rgb(132, 132, 186) 0.5px;
+    margin-top: 20px;
+    margin-right: 0.1rem;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.book img {
+    width: 20vw;
+    justify-self: center;
+}
+
+.book_img {
+    display: grid;
+}
+
+.book_info_text {
+    margin: 15px;
+}
+
+.book h3 {
+    font-size: 1.3em;
+    padding-bottom: initial;
+}
+
+.writer {
+    font-size: 1em;
+    font-style: italic;
+    margin: initial;
+}
+
+.isbn {
+    font-size: 0.8em;
+    margin: initial;
+}
+
+.book_buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.book_info {
+    display: flex;
+    justify-content: center;
+}
+
+.book_info img {
+    margin-right: 25px;
+}
+
+.book_info h2 {
+    margin-top: 50px;
+}
+
+.new_book_form,
+.update_book_form {
+    margin-top: 20px;
+}
+
+.new_book_form input[type=text],
+.update_book_form input[type=text],
+.new_book_form input[type=number],
+.update_book_form input[type=number] {
+    width: 500px;
+    height: 50px;
+    padding-left: 10px;
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.new_book_form label,
+.update_book_form label {
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+.center-form {
+    display: grid;
+    justify-content: center;
 }

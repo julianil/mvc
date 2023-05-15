@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LibraryController!{% endblock %}
+
+{% block body %}
+<h1>Välkommen till biblioteket!</h1>
+<p>Här i biblioteket hittar du ett stor utbud av alla de mes populära pocketböckerna. Klicka dig vidare för att titta på hela vårt utbud och utforska våra titlar vidare för att hitta din favorit! Du kan enkelt uppdatera eller radera en bok, men även lägg till en ny bok.</p>
+<a href="{{ path('library_show_all') }}"><button>Alla böcker</button></a>
+<a href="{{ path('library_create_get') }}"><button>Lägg till ny bok</button></a>
+{% endblock %}

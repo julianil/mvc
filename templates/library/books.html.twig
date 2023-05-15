@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Alla böcker{% endblock %}
+
+{% block body %}
+    <h1>Alla böcker</h1>
+    <div class="all_books">
+        {% for book in books %}
+        <div class="book">
+            <a href="{{ path('library_by_id', { id: book.id }) }}" class="book_img"><img src="{{ book.image }}"></a>
+            <div class="book_info_text">
+                <h3>{{ book.name }}</h3>
+                <p class="writer">{{ book.writer }}</p>
+                <p class="isbn">ISBN: {{ book.isbn }}</p>
+            </div>
+            <div class="book_buttons">
+                <a href="{{ path('library_update_get', { id: book.id }) }}"><button>Uppdatera bok</button></a>
+                <a href="{{ path('library_delete_by_id', { id: book.id }) }}"><button>Radera bok</button></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <a href="{{ path('library_create_get') }}"><button>Lägg till ny bok</button></a>
+{% endblock %}

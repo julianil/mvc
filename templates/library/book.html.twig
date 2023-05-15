@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Magic number{% endblock %}
+
+{% block body %}
+    <div class="book_info">
+        <div>
+            <img src="{{ book.image }}">
+        </div>
+        <div>
+            <h2>{{ book.name }}</h2>
+            <h3>{{ book.writer }}</h3>
+            <p class="isbn">ISBN: {{ book.isbn }}</p>
+            <p>{{ book.description }}</p>
+            <a href="{{ path('library_update_get', { id: book.id }) }}"><button>Uppdatera bok</button></a>
+            <a href="{{ path('library_delete_by_id', { id: book.id }) }}"><button>Radera bok</button></a><br>
+            <a href="{{ path('library_show_all') }}"><button>Alla böcker</button></a>
+        </div>
+    </div>
+{% endblock %}

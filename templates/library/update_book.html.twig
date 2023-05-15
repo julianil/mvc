@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Magic number{% endblock %}
+
+{% block body %}
+<div class="center-form">
+    <h1>Uppdatera bok</h1>
+    <form method="post" action="" class="update_book_form">
+        <label for="name">Namn:</label><br>
+        <input type="text" name="name" id"name" value="{{book.name}}"><br>
+        <label for="isbn">ISBN:</label><br>
+        <input type="number" name="isbn" value="{{book.isbn}}"><br>
+        <label for="writer">Författare:</label><br>
+        <input type="text" name="writer" value="{{book.writer}}"><br>
+        <label for="image">Bildlänk:</label><br>
+        <input type="text" name="image" value="{{book.image}}"><br>
+        <label for="description">Beskrivning:</label><br>
+        <input type="text" name="description" value="{{book.description}}"><br>
+        <input type="submit" name="do_it" value="Uppdatera bok">
+    </form>
+</div>
+{% endblock %}

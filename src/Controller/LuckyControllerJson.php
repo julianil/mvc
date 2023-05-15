@@ -6,6 +6,8 @@ use App\Card\DeckOfCards;
 use App\Card\Card;
 use App\Card\CardHand;
 use App\Card\CardGraphic;
+use App\Repository\LibraryRepository;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -17,15 +19,24 @@ class LuckyControllerJson extends AbstractController
 {
     #[Route("/api", name: "api_get", methods: ['GET'])]
     public function jsonStart(
-        SessionInterface $session
+        SessionInterface $session,
+        LibraryRepository $libraryRepository
     ): Response {
         $fullDeck = new DeckOfCards();
         $fullDeck->addCards();
         $session->set("deck", $fullDeck);
-        return $this->render('api.html.twig');
+
+        $books = $libraryRepository
+            ->findAll();
+
+        $data = [
+            'books' => $books,
+        ];
+
+        return $this->render('api.html.twig', $data);
     }
 
-    #[Route("/api/deck/draw", name: "api_draw_post", methods: ['POST'])]
+    #[Route("/api", name: "api_draw_post", methods: ['POST'])]
     public function initCallback(
         Request $request,
         SessionInterface $session
