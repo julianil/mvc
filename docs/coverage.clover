@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1684225193">
-  <project timestamp="1684225193">
+<coverage generated="1684226747">
+  <project timestamp="1684226747">
     <file name="/Users/julianilsson/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
-        <metrics complexity="19" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="33" elements="48" coveredelements="40"/>
+        <metrics complexity="19" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="32" elements="48" coveredelements="39"/>
       </class>
       <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="19"/>
       <line num="12" type="stmt" count="19"/>
       <line num="13" type="stmt" count="19"/>
-      <line num="16" type="method" name="drawCard" visibility="public" complexity="9" crap="12.47" count="1"/>
+      <line num="16" type="method" name="drawCard" visibility="public" complexity="9" crap="14.18" count="1"/>
       <line num="18" type="stmt" count="1"/>
       <line num="19" type="stmt" count="1"/>
       <line num="20" type="stmt" count="1"/>
@@ -25,9 +25,9 @@
       <line num="33" type="stmt" count="1"/>
       <line num="34" type="stmt" count="0"/>
       <line num="35" type="stmt" count="1"/>
-      <line num="36" type="stmt" count="0"/>
-      <line num="37" type="stmt" count="1"/>
-      <line num="38" type="stmt" count="1"/>
+      <line num="36" type="stmt" count="1"/>
+      <line num="37" type="stmt" count="0"/>
+      <line num="38" type="stmt" count="0"/>
       <line num="41" type="stmt" count="1"/>
       <line num="44" type="method" name="drawCardDeck" visibility="public" complexity="4" crap="4" count="4"/>
       <line num="46" type="stmt" count="4"/>
@@ -37,8 +37,8 @@
       <line num="50" type="stmt" count="2"/>
       <line num="51" type="stmt" count="4"/>
       <line num="52" type="stmt" count="3"/>
-      <line num="53" type="stmt" count="4"/>
-      <line num="54" type="stmt" count="2"/>
+      <line num="53" type="stmt" count="3"/>
+      <line num="54" type="stmt" count="3"/>
       <line num="57" type="stmt" count="4"/>
       <line num="59" type="stmt" count="4"/>
       <line num="62" type="method" name="addValues" visibility="public" complexity="1" crap="1" count="16"/>
@@ -53,7 +53,7 @@
       <line num="82" type="stmt" count="1"/>
       <line num="85" type="method" name="getAsString" visibility="public" complexity="1" crap="1" count="7"/>
       <line num="87" type="stmt" count="7"/>
-      <metrics loc="90" ncloc="90" classes="1" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="33" elements="48" coveredelements="40"/>
+      <metrics loc="90" ncloc="90" classes="1" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="32" elements="48" coveredelements="39"/>
     </file>
     <file name="/Users/julianilsson/dbwebb-kurser/mvc/me/report/src/Card/CardGraphic.php">
       <class name="App\Card\CardGraphic" namespace="global">
@@ -94,11 +94,11 @@
       <line num="42" type="stmt" count="3"/>
       <line num="43" type="stmt" count="3"/>
       <line num="44" type="stmt" count="3"/>
-      <line num="45" type="stmt" count="1"/>
+      <line num="45" type="stmt" count="2"/>
       <line num="46" type="stmt" count="3"/>
-      <line num="47" type="stmt" count="1"/>
+      <line num="47" type="stmt" count="2"/>
       <line num="48" type="stmt" count="3"/>
-      <line num="49" type="stmt" count="2"/>
+      <line num="49" type="stmt" count="3"/>
       <line num="50" type="stmt" count="3"/>
       <line num="51" type="stmt" count="2"/>
       <line num="53" type="stmt" count="3"/>
@@ -641,6 +641,6 @@
       <line num="38" type="stmt" count="0"/>
       <metrics loc="67" ncloc="36" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="10" coveredelements="0"/>
     </file>
-    <metrics files="14" loc="1333" ncloc="1262" classes="13" methods="85" coveredmethods="22" conditionals="0" coveredconditionals="0" statements="471" coveredstatements="112" elements="556" coveredelements="134"/>
+    <metrics files="14" loc="1333" ncloc="1262" classes="13" methods="85" coveredmethods="22" conditionals="0" coveredconditionals="0" statements="471" coveredstatements="111" elements="556" coveredelements="133"/>
   </project>
 </coverage>
