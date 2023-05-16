@@ -201,11 +201,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-LuckyControllerJson.html#method_jsonStart"
         },                {
-            "fqsen": "\\App\\Controller\\LuckyControllerJson\u003A\u003AinitCallback\u0028\u0029",
-            "name": "initCallback",
-            "summary": "",
-            "url": "classes/App-Controller-LuckyControllerJson.html#method_initCallback"
-        },                {
             "fqsen": "\\App\\Controller\\LuckyControllerJson\u003A\u003AjsonNumber\u0028\u0029",
             "name": "jsonNumber",
             "summary": "",
@@ -225,6 +220,11 @@ Search.appendIndex(
             "name": "drawACard",
             "summary": "",
             "url": "classes/App-Controller-LuckyControllerJson.html#method_drawACard"
+        },                {
+            "fqsen": "\\App\\Controller\\LuckyControllerJson\u003A\u003AinitCallback\u0028\u0029",
+            "name": "initCallback",
+            "summary": "",
+            "url": "classes/App-Controller-LuckyControllerJson.html#method_initCallback"
         },                {
             "fqsen": "\\App\\Controller\\LuckyControllerJson\u003A\u003AdrawMany\u0028\u0029",
             "name": "drawMany",

@@ -36,25 +36,6 @@ class LuckyControllerJson extends AbstractController
         return $this->render('api.html.twig', $data);
     }
 
-    #[Route("/api", name: "api_draw_post", methods: ['POST'])]
-    public function initCallback(
-        Request $request,
-        SessionInterface $session
-    ): Response {
-
-        $numCards = $request->request->get('num_cards');
-        $session->set("drawn_cards", $numCards);
-
-        $data = [
-            "num" => $numCards,
-        ];
-
-        if ($numCards == 1) {
-            return $this->redirectToRoute('api_draw_get', $data);
-        }
-        return $this->redirectToRoute('api_draw_many_get', $data);
-    }
-
     #[Route("/api/quote", name: "api_quote")]
     public function jsonNumber(): Response
     {
@@ -152,7 +133,21 @@ class LuckyControllerJson extends AbstractController
         return $response;
     }
 
-    #[Route("/api/deck/draw/{num<\d+>}", name: "api_draw_many_get")]
+    #[Route("/api/deck/draw", name: "api_draw_many_post", methods: ['POST'])]
+    public function initCallback(
+        Request $request
+    ): Response {
+
+        $num = $request->request->get('num');
+
+        $data = [
+            "num" => $num,
+        ];
+
+        return $this->redirectToRoute('api_draw_many', $data);
+    }
+
+    #[Route("/api/deck/draw/{num}", name: "api_draw_many")]
     public function drawMany(
         int $num,
         SessionInterface $session

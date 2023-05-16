@@ -151,7 +151,7 @@ class LibraryController extends AbstractController
         );
         return $response;
     }
-    #[Route("/api", name: "api_book_post", methods: ['POST'])]
+    #[Route("/api/library/book", name: "api_book_post", methods: ['POST'])]
     public function initCallback(
         LibraryRepository $libraryRepository,
         Request $request
@@ -168,7 +168,7 @@ class LibraryController extends AbstractController
     #[Route('/api/library/book/{isbn}', name: 'api_library_by_isbn')]
     public function apiShowBookByIsbn(
         LibraryRepository $libraryRepository,
-        int $isbn
+        string $isbn
     ): Response {
         $book = $libraryRepository
             ->findOneBy(array('isbn' => $isbn));

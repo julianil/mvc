@@ -313,9 +313,7 @@ footer {
 }
 
 .new_book_form input[type=text],
-.update_book_form input[type=text],
-.new_book_form input[type=number],
-.update_book_form input[type=number] {
+.update_book_form input[type=text] {
     width: 500px;
     height: 50px;
     padding-left: 10px;
