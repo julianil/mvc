@@ -86,9 +86,7 @@ class LuckyControllerTwig extends AbstractController
     }
 
     #[Route("/card/deck/shuffel", name: "shuffel")]
-    public function shuffel(
-        SessionInterface $session
-    ): Response {
+    public function shuffel(): Response {
         $fullDeck = new DeckOfCards();
 
         $fullDeck->shuffleDeck();
@@ -131,10 +129,6 @@ class LuckyControllerTwig extends AbstractController
         SessionInterface $session
     ): Response {
         $fullDeck = $session->get("current_deck");
-
-        if ($fullDeck->getNumberCards() < $num) {
-            var_dump("No more cards in the pile");
-        }
 
         $hand = new CardHand();
         for ($i = 1; $i <= $num; $i++) {

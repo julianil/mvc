@@ -154,10 +154,6 @@ class LuckyControllerJson extends AbstractController
     ): Response {
         $fullDeck = $session->get("deck");
 
-        if ($num > 52) {
-            var_dump("No more cards in the pile");
-        }
-
         $hand = new CardHand();
         for ($i = 1; $i <= $num; $i++) {
             $hand->add(new Card());

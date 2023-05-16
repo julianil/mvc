@@ -22,8 +22,7 @@ class LibraryController extends AbstractController
         ]);
     }
     #[Route('/library/create', name: 'library_create_get', methods: ['GET'])]
-    public function newBook(
-    ): Response {
+    public function newBook(): Response {
 
         return $this->render('library/new_book.html.twig');
     }
@@ -153,7 +152,6 @@ class LibraryController extends AbstractController
     }
     #[Route("/api/library/book", name: "api_book_post", methods: ['POST'])]
     public function initCallback(
-        LibraryRepository $libraryRepository,
         Request $request
     ): Response {
 
