@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="19" assertions="53" errors="0" warnings="0" failures="0" skipped="0" time="0.022831">
+    <testsuite name="Project Test Suite" tests="19" assertions="53" errors="0" warnings="0" failures="0" skipped="0" time="0.022831">
+      <testsuite name="App\Card\CardGraphicObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardGraphicObjectTest.php" tests="5" assertions="10" errors="0" warnings="0" failures="0" skipped="0" time="0.009509">
+        <testcase name="testgetAsStringNoValue" class="App\Card\CardGraphicObjectTest" classname="App.Card.CardGraphicObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardGraphicObjectTest.php" line="16" assertions="2" time="0.007807"/>
+        <testcase name="testgetAsStringValueRuter" class="App\Card\CardGraphicObjectTest" classname="App.Card.CardGraphicObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardGraphicObjectTest.php" line="27" assertions="2" time="0.000784"/>
+        <testcase name="testgetAsStringValueSpader" class="App\Card\CardGraphicObjectTest" classname="App.Card.CardGraphicObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardGraphicObjectTest.php" line="41" assertions="2" time="0.000308"/>
+        <testcase name="testgetAsStringValueHjarter" class="App\Card\CardGraphicObjectTest" classname="App.Card.CardGraphicObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardGraphicObjectTest.php" line="55" assertions="2" time="0.000312"/>
+        <testcase name="testgetAsStringValueKlover" class="App\Card\CardGraphicObjectTest" classname="App.Card.CardGraphicObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardGraphicObjectTest.php" line="69" assertions="2" time="0.000299"/>
+      </testsuite>
+      <testsuite name="App\Card\CardHandObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardHandObjectTest.php" tests="4" assertions="19" errors="0" warnings="0" failures="0" skipped="0" time="0.004756">
+        <testcase name="testGetNumberCards" class="App\Card\CardHandObjectTest" classname="App.Card.CardHandObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardHandObjectTest.php" line="16" assertions="3" time="0.001190"/>
+        <testcase name="testBankHand" class="App\Card\CardHandObjectTest" classname="App.Card.CardHandObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardHandObjectTest.php" line="35" assertions="3" time="0.002436"/>
+        <testcase name="testGetWinner" class="App\Card\CardHandObjectTest" classname="App.Card.CardHandObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardHandObjectTest.php" line="50" assertions="7" time="0.000774"/>
+        <testcase name="testGetScoreHand" class="App\Card\CardHandObjectTest" classname="App.Card.CardHandObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardHandObjectTest.php" line="77" assertions="6" time="0.000356"/>
+      </testsuite>
+      <testsuite name="App\Card\CardObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardObjectTest.php" tests="7" assertions="15" errors="0" warnings="0" failures="0" skipped="0" time="0.002355">
+        <testcase name="testStringReturned" class="App\Card\CardObjectTest" classname="App.Card.CardObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardObjectTest.php" line="16" assertions="2" time="0.000292"/>
+        <testcase name="testAddValue" class="App\Card\CardObjectTest" classname="App.Card.CardObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardObjectTest.php" line="27" assertions="2" time="0.000282"/>
+        <testcase name="testDrawCard" class="App\Card\CardObjectTest" classname="App.Card.CardObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardObjectTest.php" line="40" assertions="2" time="0.000297"/>
+        <testcase name="testgetValue" class="App\Card\CardObjectTest" classname="App.Card.CardObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardObjectTest.php" line="51" assertions="2" time="0.000294"/>
+        <testcase name="testgetValueString" class="App\Card\CardObjectTest" classname="App.Card.CardObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardObjectTest.php" line="65" assertions="2" time="0.000290"/>
+        <testcase name="testgetColor" class="App\Card\CardObjectTest" classname="App.Card.CardObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardObjectTest.php" line="79" assertions="2" time="0.000288"/>
+        <testcase name="testDrawCardDeck" class="App\Card\CardObjectTest" classname="App.Card.CardObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/CardObjectTest.php" line="93" assertions="3" time="0.000612"/>
+      </testsuite>
+      <testsuite name="App\Card\DeckOfCardsObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/DeckOfCardsObjectTest.php" tests="3" assertions="9" errors="0" warnings="0" failures="0" skipped="0" time="0.006212">
+        <testcase name="testShuffleDeck" class="App\Card\DeckOfCardsObjectTest" classname="App.Card.DeckOfCardsObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/DeckOfCardsObjectTest.php" line="17" assertions="3" time="0.004003"/>
+        <testcase name="testNumberCards" class="App\Card\DeckOfCardsObjectTest" classname="App.Card.DeckOfCardsObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/DeckOfCardsObjectTest.php" line="33" assertions="2" time="0.000529"/>
+        <testcase name="testUpdateDeck" class="App\Card\DeckOfCardsObjectTest" classname="App.Card.DeckOfCardsObjectTest" file="/Users/julianilsson/dbwebb-kurser/mvc/me/report/tests/Card/DeckOfCardsObjectTest.php" line="46" assertions="4" time="0.001680"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
