@@ -154,4 +154,9 @@ class LuckyControllerTwig extends AbstractController
 
         return $this->render('card/deck/draw_many.html.twig', $data);
     }
+    #[Route("/metrics", name: "metrics_analys")]
+    public function analysMetrics(): Response {
+
+        return $this->render('metrics.html.twig');
+    }
 }
