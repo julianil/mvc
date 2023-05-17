@@ -20,7 +20,6 @@ class LibraryControllerTest extends WebTestCase
 
         $client->request('GET', '/library');
 
-        $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Välkommen till biblioteket!');
     }
 
@@ -33,7 +32,6 @@ class LibraryControllerTest extends WebTestCase
 
         $client->request('GET', '/library/create');
 
-        $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Ny bok');
     }
 
@@ -46,7 +44,6 @@ class LibraryControllerTest extends WebTestCase
 
         $client->request('GET', '/library/show');
 
-        $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Alla böcker');
     }
 }

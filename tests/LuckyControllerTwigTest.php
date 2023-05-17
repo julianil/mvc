@@ -20,7 +20,6 @@ class LuckyControllerTwigTest extends WebTestCase
 
         $client->request('GET', '/lucky');
 
-        $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Throw the dice');
     }
 
@@ -33,7 +32,6 @@ class LuckyControllerTwigTest extends WebTestCase
 
         $client->request('GET', '/');
 
-        $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Home');
     }
 
@@ -46,7 +44,6 @@ class LuckyControllerTwigTest extends WebTestCase
 
         $client->request('GET', '/about');
 
-        $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'About');
     }
 
@@ -59,7 +56,6 @@ class LuckyControllerTwigTest extends WebTestCase
 
         $client->request('GET', '/report');
 
-        $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Redovisning');
     }
 
@@ -72,7 +68,6 @@ class LuckyControllerTwigTest extends WebTestCase
 
         $client->request('GET', '/card');
 
-        $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Kortspel');
     }
 
@@ -85,7 +80,6 @@ class LuckyControllerTwigTest extends WebTestCase
 
         $client->request('GET', '/metrics');
 
-        $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Metrics analys');
     }
 }

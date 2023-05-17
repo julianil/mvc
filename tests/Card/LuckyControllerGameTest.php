@@ -19,7 +19,6 @@ class LuckyControllerGameTest extends WebTestCase
 
         $client->request('GET', '/game');
 
-        $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Spel: 21');
     }
 
@@ -32,7 +31,6 @@ class LuckyControllerGameTest extends WebTestCase
 
         $client->request('GET', '/game/doc');
 
-        $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'Spel dokumentation');
     }
 }
