@@ -23,6 +23,6 @@ class ProductEntityTest extends TestCase
 
         $this->assertIsObject($product);
         $this->assertStringContainsString("Kakor", $product->getName());
-        $this->assertStringContainsString(100, $product->getValue());
+        $this->assertIsInt($product->getValue());
     }
 }

@@ -86,7 +86,8 @@ class LuckyControllerTwig extends AbstractController
     }
 
     #[Route("/card/deck/shuffel", name: "shuffel")]
-    public function shuffel(): Response {
+    public function shuffel(): Response
+    {
         $fullDeck = new DeckOfCards();
 
         $fullDeck->shuffleDeck();
@@ -149,7 +150,8 @@ class LuckyControllerTwig extends AbstractController
         return $this->render('card/deck/draw_many.html.twig', $data);
     }
     #[Route("/metrics", name: "metrics_analys")]
-    public function analysMetrics(): Response {
+    public function analysMetrics(): Response
+    {
 
         return $this->render('metrics.html.twig');
     }

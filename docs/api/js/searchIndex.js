@@ -291,6 +291,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-LuckyControllerTwig.html#method_drawCards"
         },                {
+            "fqsen": "\\App\\Controller\\LuckyControllerTwig\u003A\u003AanalysMetrics\u0028\u0029",
+            "name": "analysMetrics",
+            "summary": "",
+            "url": "classes/App-Controller-LuckyControllerTwig.html#method_analysMetrics"
+        },                {
             "fqsen": "\\App\\Kernel",
             "name": "Kernel",
             "summary": "",

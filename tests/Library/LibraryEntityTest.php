@@ -32,4 +32,3 @@ class LibraryEntityTest extends TestCase
         $this->assertStringContainsString("Det var en gång en liten", $book->getDescription());
     }
 }
-
