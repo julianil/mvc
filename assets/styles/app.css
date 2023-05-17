@@ -332,3 +332,21 @@ footer {
     display: grid;
     justify-content: center;
 }
+
+.analys ul {
+    display: block;
+    height: auto;
+    list-style-type: disc;
+    max-width: none;
+    padding-bottom: 40px;
+}
+
+.analys-value {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 40px;
+}
+
+.analys-value p {
+    margin: initial;
+}

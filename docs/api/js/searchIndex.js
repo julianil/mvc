@@ -206,36 +206,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-LuckyControllerJson.html#method_jsonNumber"
         },                {
-            "fqsen": "\\App\\Controller\\LuckyControllerJson\u003A\u003AjsonSortedDeck\u0028\u0029",
-            "name": "jsonSortedDeck",
-            "summary": "",
-            "url": "classes/App-Controller-LuckyControllerJson.html#method_jsonSortedDeck"
-        },                {
-            "fqsen": "\\App\\Controller\\LuckyControllerJson\u003A\u003AjsonShuffelDeck\u0028\u0029",
-            "name": "jsonShuffelDeck",
-            "summary": "",
-            "url": "classes/App-Controller-LuckyControllerJson.html#method_jsonShuffelDeck"
-        },                {
-            "fqsen": "\\App\\Controller\\LuckyControllerJson\u003A\u003AdrawACard\u0028\u0029",
-            "name": "drawACard",
-            "summary": "",
-            "url": "classes/App-Controller-LuckyControllerJson.html#method_drawACard"
-        },                {
-            "fqsen": "\\App\\Controller\\LuckyControllerJson\u003A\u003AinitCallback\u0028\u0029",
-            "name": "initCallback",
-            "summary": "",
-            "url": "classes/App-Controller-LuckyControllerJson.html#method_initCallback"
-        },                {
-            "fqsen": "\\App\\Controller\\LuckyControllerJson\u003A\u003AdrawMany\u0028\u0029",
-            "name": "drawMany",
-            "summary": "",
-            "url": "classes/App-Controller-LuckyControllerJson.html#method_drawMany"
-        },                {
-            "fqsen": "\\App\\Controller\\LuckyControllerJson\u003A\u003AjsonGame\u0028\u0029",
-            "name": "jsonGame",
-            "summary": "",
-            "url": "classes/App-Controller-LuckyControllerJson.html#method_jsonGame"
-        },                {
             "fqsen": "\\App\\Controller\\LuckyControllerTwig",
             "name": "LuckyControllerTwig",
             "summary": "",
@@ -345,21 +315,6 @@ Search.appendIndex(
             "name": "updateBook",
             "summary": "",
             "url": "classes/App-Controller-LibraryController.html#method_updateBook"
-        },                {
-            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AapiShowAllBooks\u0028\u0029",
-            "name": "apiShowAllBooks",
-            "summary": "",
-            "url": "classes/App-Controller-LibraryController.html#method_apiShowAllBooks"
-        },                {
-            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AinitCallback\u0028\u0029",
-            "name": "initCallback",
-            "summary": "",
-            "url": "classes/App-Controller-LibraryController.html#method_initCallback"
-        },                {
-            "fqsen": "\\App\\Controller\\LibraryController\u003A\u003AapiShowBookByIsbn\u0028\u0029",
-            "name": "apiShowBookByIsbn",
-            "summary": "",
-            "url": "classes/App-Controller-LibraryController.html#method_apiShowBookByIsbn"
         },                {
             "fqsen": "\\App\\Controller\\ProductController",
             "name": "ProductController",
@@ -570,6 +525,61 @@ Search.appendIndex(
             "name": "remove",
             "summary": "",
             "url": "classes/App-Repository-ProductRepository.html#method_remove"
+        },                {
+            "fqsen": "\\App\\Controller\\CardControllerJson",
+            "name": "CardControllerJson",
+            "summary": "",
+            "url": "classes/App-Controller-CardControllerJson.html"
+        },                {
+            "fqsen": "\\App\\Controller\\CardControllerJson\u003A\u003AjsonSortedDeck\u0028\u0029",
+            "name": "jsonSortedDeck",
+            "summary": "",
+            "url": "classes/App-Controller-CardControllerJson.html#method_jsonSortedDeck"
+        },                {
+            "fqsen": "\\App\\Controller\\CardControllerJson\u003A\u003AjsonShuffelDeck\u0028\u0029",
+            "name": "jsonShuffelDeck",
+            "summary": "",
+            "url": "classes/App-Controller-CardControllerJson.html#method_jsonShuffelDeck"
+        },                {
+            "fqsen": "\\App\\Controller\\CardControllerJson\u003A\u003AdrawACard\u0028\u0029",
+            "name": "drawACard",
+            "summary": "",
+            "url": "classes/App-Controller-CardControllerJson.html#method_drawACard"
+        },                {
+            "fqsen": "\\App\\Controller\\CardControllerJson\u003A\u003AinitCallback\u0028\u0029",
+            "name": "initCallback",
+            "summary": "",
+            "url": "classes/App-Controller-CardControllerJson.html#method_initCallback"
+        },                {
+            "fqsen": "\\App\\Controller\\CardControllerJson\u003A\u003AdrawMany\u0028\u0029",
+            "name": "drawMany",
+            "summary": "",
+            "url": "classes/App-Controller-CardControllerJson.html#method_drawMany"
+        },                {
+            "fqsen": "\\App\\Controller\\CardControllerJson\u003A\u003AjsonGame\u0028\u0029",
+            "name": "jsonGame",
+            "summary": "",
+            "url": "classes/App-Controller-CardControllerJson.html#method_jsonGame"
+        },                {
+            "fqsen": "\\App\\Controller\\LibraryControllerJson",
+            "name": "LibraryControllerJson",
+            "summary": "",
+            "url": "classes/App-Controller-LibraryControllerJson.html"
+        },                {
+            "fqsen": "\\App\\Controller\\LibraryControllerJson\u003A\u003AapiShowAllBooks\u0028\u0029",
+            "name": "apiShowAllBooks",
+            "summary": "",
+            "url": "classes/App-Controller-LibraryControllerJson.html#method_apiShowAllBooks"
+        },                {
+            "fqsen": "\\App\\Controller\\LibraryControllerJson\u003A\u003AinitCallback\u0028\u0029",
+            "name": "initCallback",
+            "summary": "",
+            "url": "classes/App-Controller-LibraryControllerJson.html#method_initCallback"
+        },                {
+            "fqsen": "\\App\\Controller\\LibraryControllerJson\u003A\u003AapiShowBookByIsbn\u0028\u0029",
+            "name": "apiShowBookByIsbn",
+            "summary": "",
+            "url": "classes/App-Controller-LibraryControllerJson.html#method_apiShowBookByIsbn"
         },                {
             "fqsen": "\\",
             "name": "\\",

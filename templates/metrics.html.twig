@@ -6,31 +6,64 @@
     <h1>Metrics analys</h1>
     <p class="author">Skriven 2023-04-05 av Julia Nilsson</p>
     <div class="analys">
-    <h3>Introduktion</h3>
-    <p>Börja med en rubrik “Introduktion” där du förklarar de sex C:na och hur de kan påverka kodens kvalitet. Exemplifiera, där det passar, med några mätvärden som är kopplad till din egen kod och ge en kort förklaring av mätvärdet relaterat till kodkvalitet.</p>
-    <h3>Phpmetrics</h3>
-    <p>Skapa en rubrik “Phpmetrics” och analysera dess rapport för din kod. Använd mätvärdena för att hitta flaskhalsar och svaga punkter i din kod (minst 3 stycken). Du vill hitta kod som har förbättringspotential. Visualisera med någon representativ bild från rapporten.</p>
-    <h3>Scrutinizer</h3>
-    <p>Skapa en rubrik “Scrutinizer” och analysera dess rapport för din kod. Gör på samma sätt som du gjorde med Phpmetrics.</p>
-    <a href="https://scrutinizer-ci.com/g/julianil/mvc/inspections/9e8fdee9-18cc-4f99-a3ef-196a5393e4bc/log"><img src="https://scrutinizer-ci.com/g/julianil/mvc/badges/build.png?b=main" alt="build score"></a>
-    <a href="https://scrutinizer-ci.com/g/julianil/mvc/?branch=main"><img src="https://scrutinizer-ci.com/g/julianil/mvc/badges/coverage.png?b=main" alt="coverage score"></a>
-    <a href="https://scrutinizer-ci.com/g/julianil/mvc/?branch=main"><img src="https://scrutinizer-ci.com/g/julianil/mvc/badges/quality-score.png?b=main" alt="quality score"></a>
-    <h3>Förbättringar</h3>
-    <p>Skapa en ny rubrik “Förbättringar” där du väljer minst 3 förbättringar som du vill göra med din kod (gärna fler).
-    Exempel på förbättringar kan vara:
-    Fixa issues
-    Öka kodtäckning
-    Fokusera på kvalitetsindex i Scrutinizer
-    Minska komplexiteten i class/metod
-    Börja med att skriva om förbättringarna, vad du tänker göra, varför du väljer dem och hur du tror det kommer påverka mätvärdena för kvalitet.
-    Implementera sedan förbättringarna.
-    Analysera därefter rapporterna från phpmetrics och Scrutinizer och notera de nya mätvärdena.
-    Gör det tydligt hur mätvärdena såg ut innan och efter dina förbättringar.</p>
-    <h3>Diskussion</h3>
-    <p>Avsluta med ett stycke “Diskussion” där du diskuterar kort kring det du nyss gjort.
-    Kan man aktivt jobba med kodkvalitet och “clean code” på detta sättet?
-    Finns det fördelar och kanske nackdelar?
-    Ser du andra möjligheter att jobba mot “clean code”?</p>
+        <h2>Introduktion</h2>
+        <p>Börja med en rubrik “Introduktion” där du förklarar de sex C:na och hur de kan påverka kodens kvalitet. Exemplifiera, där det passar, med några mätvärden som är kopplad till din egen kod och ge en kort förklaring av mätvärdet relaterat till kodkvalitet.</p>
+        <ul>
+            <li>Codestyle</li>
+            <li>Coverage</li>
+            <li>Complexity</li>
+            <li>Cohesion</li>
+            <li>Coupling</li>
+            <li>CRAP</li>
+        </ul>
+        <h2>Phpmetrics</h2>
+        <p>Skapa en rubrik “Phpmetrics” och analysera dess rapport för din kod. Använd mätvärdena för att hitta flaskhalsar och svaga punkter i din kod (minst 3 stycken). Du vill hitta kod som har förbättringspotential. Visualisera med någon representativ bild från rapporten.</p>
+        <h2>Scrutinizer</h2>
+        <a href="https://scrutinizer-ci.com/g/julianil/mvc/inspections/9e8fdee9-18cc-4f99-a3ef-196a5393e4bc/log"><img src="https://scrutinizer-ci.com/g/julianil/mvc/badges/build.png?b=main" alt="build score"></a>
+        <a href="https://scrutinizer-ci.com/g/julianil/mvc/?branch=main"><img src="https://scrutinizer-ci.com/g/julianil/mvc/badges/coverage.png?b=main" alt="coverage score"></a>
+        <a href="https://scrutinizer-ci.com/g/julianil/mvc/?branch=main"><img src="https://scrutinizer-ci.com/g/julianil/mvc/badges/quality-score.png?b=main" alt="quality score"></a>
+        <p>Skapa en rubrik “Scrutinizer” och analysera dess rapport för din kod. Gör på samma sätt som du gjorde med Phpmetrics.</p>
+        <h2>Förbättringar</h2>
+        <ol>
+            <li>Det första jag tänker gå in och justera de de issues som scrutinizer lokaliserade, detta då dessa är mindra buggar och liknande som jag med enkla medel kan fixa. Jag tror inte dessa på något 
+            sätt är avgörande för kvaliten på min kod elelr hur högt score jag får, men de känns ändå värt att fixa till då det är snabbt och enkelt gjort.</li><br>
+            <li>Den andra delen jag tänker fixa i mon kod handlar om att jobba med min kodtäckning, i nuläget har jag endast skrivit tester för mina card-klasser vilket procentuellt blir ett väldigt lågt score.
+            Så jag tänker gå in och föröska skriva tester för så många delar som möjligt med målet att höja min kodtäckning, hade jag fått upp den till ett gult värde istället för rött hade jag varit mer än nöjd.</li><br>
+            <li>Jag ska även försöka lösa de violations som jag fått i metrics-rapporten, detta då de är kopplade till de classer jag själv skrivit. På grund av detta tänker jag att det kan bli ett bra tillf'lla för mig att 
+            skapa en ännu djupare förståelse för koden i min klasser. SKulle jag lyckas lösa alla dessa violations så tänker jag att det rimligen borde höja kvaliten på dom, litegrann iallafall.
+            Genom att flytta runt bland mina routes och placera ut dessa i flera olika controller filer, så att varje controller innehåller färra routes. Lyckades jag lösa flera violations. Jag lyckades även lösa en violation genom att 
+            få ner complexiteten på min DeckOfCards-klass. Detta gjorde jag främst genom att förenkla en av if-satserna i en klass-funktion.</li>
+        </ol>
+        Implementera sedan förbättringarna.
+        Analysera därefter rapporterna från phpmetrics och Scrutinizer och notera de nya mätvärdena.</p>
+        <div class="analys-value">
+            <div>
+                <h3>Mina initiella mätvärden låg på:</h3>
+                <p>Scrutinizer 9.90</p>
+                <p>Coverarge 24%</p>
+                <p>Average cyclomatic complexity by class 4.5</p>
+                <p>Average LCOM0 2.14</p>
+            </div>
+            <div>
+                <h3>Mina slutliga mätvärden låg på:</h3>
+                <p>Scrutinizer 9.90</p>
+                <p>Coverarge 31%</p>
+                <p>Average cyclomatic complexity by class 3.88</p>
+                <p>Average LCOM0 1.94</p>
+            </div>
+            <div>
+                <h3>Skillnad:</h3>
+                <p>Scrutinizer 0</p>
+                <p>Coverarge +7%</p>
+                <p>Average cyclomatic complexity by class -0.62</p>
+                <p>Average LCOM0 -0.2</p>
+            </div>
+        </div>
+        <h2>Diskussion</h2>
+        <p>Avsluta med ett stycke “Diskussion” där du diskuterar kort kring det du nyss gjort.
+        Kan man aktivt jobba med kodkvalitet och “clean code” på detta sättet?
+        Finns det fördelar och kanske nackdelar?
+        Ser du andra möjligheter att jobba mot “clean code”?</p>
     </div>
 
 {% endblock %}

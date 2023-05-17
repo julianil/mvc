@@ -12,7 +12,8 @@ class DeckOfCardsObjectTest extends TestCase
     /**
      * Skapar två DeckOfCards-objekt och adderar 52 card-objekt som sorteras efterfärg och storlek.
      * Blandar det ena DeckOfCards-objektet med shuffleDeck() funktionen, kontrollera så att
-     * DeckOfCards-objekten inte längre är likadana.
+     * DeckOfCards-objekten inte längre är likadana. Kontrollera
+     * att rätt antal kort-objekt skapas.
      */
     public function testShuffleDeck()
     {
@@ -25,18 +26,7 @@ class DeckOfCardsObjectTest extends TestCase
         $deck2->addCards();
         $deck2->shuffleDeck();
         $this->assertNotEquals($deck1->getString(), $deck2->getString());
-    }
-    /**
-     * Skapar ett DeckOfCards-objekt och adderar 52 kort-objekt, kontrollera
-     * att rätt antal kort-objekt skapas.
-     */
-    public function testNumberCards()
-    {
-        $deck = new DeckOfCards();
-        $this->assertInstanceOf("\App\Card\DeckOfCards", $deck);
-
-        $deck->addCards();
-        $this->assertSame(52, $deck->getNumberCards());
+        $this->assertSame(52, $deck1->getNumberCards());
     }
     /**
      * Skapar ett DeckOfCards-objekt och adderar 52 kort-objekt. Skapar hand-objekt och adderar

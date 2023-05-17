@@ -36,21 +36,14 @@ class DeckOfCards
         }
         $this->deck = [];
         foreach ($deck as $cardValue) {
-            if (str_contains($cardValue, "♣")) {
-                $card = new Card();
-                $this->deck[] = $card;
-                $card->addValues($cardValue[0], "♣");
-            } elseif (str_contains($cardValue, "♠")) {
-                $card = new Card();
-                $this->deck[] = $card;
+            $card = new Card();
+            $this->deck[] = $card;
+            $card->addValues($cardValue[0], "♣");
+            if (str_contains($cardValue, "♠")) {
                 $card->addValues($cardValue[0], "♠");
             } elseif (str_contains($cardValue, "♥")) {
-                $card = new Card();
-                $this->deck[] = $card;
                 $card->addValues($cardValue[0], "♥");
             } elseif (str_contains($cardValue, "♦")) {
-                $card = new Card();
-                $this->deck[] = $card;
                 $card->addValues($cardValue[0], "♦");
             }
         }

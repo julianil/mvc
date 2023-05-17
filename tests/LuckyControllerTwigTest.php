@@ -14,7 +14,7 @@ class LuckyControllerTwigTest extends WebTestCase
     /**
      * Testar att routen /lucky laddas korrekt och med rätt template.
      */
-    public function testLucky()
+    public function testLucky(): void
     {
         $client = static::createClient();
 
