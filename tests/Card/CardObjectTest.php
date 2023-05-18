@@ -45,6 +45,31 @@ class CardObjectTest extends TestCase
         $this->assertNotEmpty($card->drawCard());
     }
     /**
+     * Skapar fyra card-objekt och testar att det går att lägga till värden till dessa
+     * med hjälp av drawCard() funktionen.
+     */
+    public function testDrawCards()
+    {
+        $card1 = new Card();
+        $this->assertInstanceOf("\App\Card\Card", $card1);
+        $card2 = new Card();
+        $this->assertInstanceOf("\App\Card\Card", $card2);
+        $card3 = new Card();
+        $this->assertInstanceOf("\App\Card\Card", $card3);
+        $card4 = new Card();
+        $this->assertInstanceOf("\App\Card\Card", $card4);
+
+        $card1->drawCard();
+        $card2->drawCard();
+        $card3->drawCard();
+        $card4->drawCard();
+
+        $this->assertNotEmpty($card1);
+        $this->assertNotEmpty($card2);
+        $this->assertNotEmpty($card3);
+        $this->assertNotEmpty($card4);
+    }
+    /**
      * Skapar ett card-objekt och ger det ett värde, kontrollerar att rätt värde
      * sätts och retuneras när getVaule() anropas.
      */

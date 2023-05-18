@@ -17,20 +17,21 @@ class Card
     {
         $value = random_int(1, 13);
         $this->value = $value;
-        if ($value == 1) {
-            $this->value = "A";
-        } elseif ($value == 11) {
-            $this->value = "J";
-        } elseif ($value == 12) {
-            $this->value = "Q";
-        } elseif ($value == 13) {
-            $this->value = "K";
+        if ($value == 1 || $value > 10) {
+            if ($value == 1) {
+                $this->value = "A";
+            } elseif ($value == 11) {
+                $this->value = "J";
+            } elseif ($value == 12) {
+                $this->value = "Q";
+            } elseif ($value == 13) {
+                $this->value = "K";
+            }
         }
 
         $color = random_int(1, 4);
-        if ($color == 1) {
-            $this->color = "♣";
-        } elseif ($color == 2) {
+        $this->color = "♣";
+        if ($color == 2) {
             $this->color = "♠";
         } elseif ($color == 3) {
             $this->color = "♥";

@@ -9,12 +9,24 @@
         <h2>Introduktion</h2>
         <p>Börja med en rubrik “Introduktion” där du förklarar de sex C:na och hur de kan påverka kodens kvalitet. Exemplifiera, där det passar, med några mätvärden som är kopplad till din egen kod och ge en kort förklaring av mätvärdet relaterat till kodkvalitet.</p>
         <ul>
-            <li>Codestyle</li>
-            <li>Coverage</li>
-            <li>Complexity</li>
-            <li>Cohesion</li>
-            <li>Coupling</li>
-            <li>CRAP</li>
+            <li>Codestyle: Det första C:et handlar kort och gott om hur koden är skriven rent visuellt. Är koden skriven på ett visst sätt 
+            underlättar det för dig själv och andra att förstå samt läsa koden. Detta i sin tur gör att koden är lättare att exempelvis redigera eller vidareutveckla utan 
+            att den förstörs. Saker man kan tänka på för att säkerställa en god kodstil är exemplvis indrag, det är något som ger koden en tylig hierarki och gör bland annat if-satser och loopar mer överskådliga och lätta att följa.
+            Du kan även tänka på att använda dig av whitespace på rätt ställen samt att kommentera din kod på ett tyldigt och bra sätt. Det finns många exempel på hur man skriver med en god kodstil men det viktigaste är egentligen att ha i 
+            åtanke att vem som helst ska kunna gå in och läs din kod och förstå vad den gör.</li>
+            <li>Coverage: Det andra C:et handlar om kodtäckning vilket kopplas till hur stor del av källkoden som exekveras i de tester som körs.
+            När jag körde min kod i scrutinizer för första gången så hade jag en kod täckning på 24% vilket inte är speciellt högt. Men genom att enkelt addera lite flera tester som exekverade andra delar av källkoden
+            kunde jag ganska enkelt få upp den siffrar till 40%. Även om kodtäckningen i sig inte ger en högra kvalitet på koden så får du genom att skriva tester som täcker större delar av koden möjligheten att utvärdera din kod bättre.
+            Detta i sin tur kan ju leda till att du isner att viss kod kanske borde skrivas på ett annat sätt eller rentav kan tas bort, vilket slutligen kan leda till en högra kodkvalitet.</li>
+            <li>Complexity: Det tredje C:et handlar om kodens komplexitet vilken mätts med hjälp av några olika saker. Först har vi antalet kodrader i källkoden. Sen har vi den cyklomatiska komplexiteten som mäts genom att titta på antalet "vägar" i koden, exempelvis genom att 
+            titta på if-satser, for-looper osv där varje statement skapar en egen "väg". För att avgöra koden komplexitet tittar man även på antalet variabler och hur ofta de förekommer samt klasskopplingar som tittar på antalet klasser varje klass är beroende av. Men hjälp av bland annat dessa 4 saker
+            kan man alltså avgöra hur komplex koden är vilket i sin tur självklart påverkar koden kvalitet, komplex kod är inte nödvändigtvis lika med bra kod. Tittar man på min kod exempelvis så kunde jag på ett ställe ta bort 10 rader med kod från en if-sats vilket gjorde att min kodkvalitet höjdes från 9.0 till 9.2.</li>
+            <li>Cohesion: Det fjärde C:et är Kohesion som är ett mått på till vilken grad en moduls delar är funktionellt relaterade, alltså om de är intriktade på att tillsammans uppfylla ett gemensamt syfte. Det handlar alltså om att en klass som har en hög kohesion är lättare att återanvända och kombinera med andra klasser då 
+            den har ett tydligt syfte. För att öka sin kohesion kan det vara bra att fundera på om man ska dela upp visa av sina klasser i flera mindra klasser som har ett tydligare gemensamt syfte.</li>
+            <li>Coupling: Det femte C:et är klasskopplingar, eller coupling, som egentligen tittar på antalet klasser varje klass är beroende av. För att ha en god kodkvalitet önskar vi ha så låg coupling som möjligt då vi önskar att våra klasser ska vara så självgående som möjligt.
+            Har vi en låg coupling underlättare det även för oss om vi bestämmer oss för att gå in och ändra i våra klasser i efterhand, ger vi detta så behöver vi kanske även gå in och ändra i de klasser som har ett beronde till denna klassen.</li>
+            <li>CRAP: Det sjätte och sista C:et handlar i stora drag om att mäta hur stor risk som medkommer om en rad kod skulle förändras. CRAP beräknas med hjälp av den cyklomatiska komplexiteten och kodtäckningen. Det är förhållnadet mellan den cyklomatiska komplexiteten och kodtäckningen som avgör hur högt CRAP score koden har, vi vill självklart ha ett 
+            så lågt CRAP score som möjligt.</li>
         </ul>
         <h2>Phpmetrics</h2>
         <p>Skapa en rubrik “Phpmetrics” och analysera dess rapport för din kod. Använd mätvärdena för att hitta flaskhalsar och svaga punkter i din kod (minst 3 stycken). Du vill hitta kod som har förbättringspotential. Visualisera med någon representativ bild från rapporten.</p>
