@@ -7,47 +7,71 @@
     <p class="author">Skriven 2023-04-05 av Julia Nilsson</p>
     <div class="analys">
         <h2>Introduktion</h2>
-        <p>Börja med en rubrik “Introduktion” där du förklarar de sex C:na och hur de kan påverka kodens kvalitet. Exemplifiera, där det passar, med några mätvärden som är kopplad till din egen kod och ge en kort förklaring av mätvärdet relaterat till kodkvalitet.</p>
+        <p>Följande är en analys av de rapporter som genererats av kodkvaliten på denna sidas källkod.
+        Nedan följer en beskrivning av de sex C:na och hur de kan påverka kodens kvalitet.</p>
         <ul>
             <li>Codestyle: Det första C:et handlar kort och gott om hur koden är skriven rent visuellt. Är koden skriven på ett visst sätt 
-            underlättar det för dig själv och andra att förstå samt läsa koden. Detta i sin tur gör att koden är lättare att exempelvis redigera eller vidareutveckla utan 
-            att den förstörs. Saker man kan tänka på för att säkerställa en god kodstil är exemplvis indrag, det är något som ger koden en tylig hierarki och gör bland annat if-satser och loopar mer överskådliga och lätta att följa.
-            Du kan även tänka på att använda dig av whitespace på rätt ställen samt att kommentera din kod på ett tyldigt och bra sätt. Det finns många exempel på hur man skriver med en god kodstil men det viktigaste är egentligen att ha i 
+            är det lättare för dig själv och andra att förstå samt läsa koden. Detta i sin tur gör att koden även är lättare att exempelvis redigera eller vidareutveckla utan 
+            att den förstörs. Saker man kan tänka på för att säkerställa en god kodstil är exempelvis indrag, det är något som ger koden en tydlig hierarki och gör bland annat if-satser och loopar mer överskådliga och lätta att följa.
+            Du kan även tänka på att använda dig av whitespace på rätt ställen samt att kommentera din kod på ett tydligt och bra sätt. Det finns många exempel på hur man skriver med en god kodstil men det viktigaste är egentligen att ha i 
             åtanke att vem som helst ska kunna gå in och läs din kod och förstå vad den gör.</li>
             <li>Coverage: Det andra C:et handlar om kodtäckning vilket kopplas till hur stor del av källkoden som exekveras i de tester som körs.
             När jag körde min kod i scrutinizer för första gången så hade jag en kod täckning på 24% vilket inte är speciellt högt. Men genom att enkelt addera lite flera tester som exekverade andra delar av källkoden
-            kunde jag ganska enkelt få upp den siffrar till 40%. Även om kodtäckningen i sig inte ger en högra kvalitet på koden så får du genom att skriva tester som täcker större delar av koden möjligheten att utvärdera din kod bättre.
-            Detta i sin tur kan ju leda till att du isner att viss kod kanske borde skrivas på ett annat sätt eller rentav kan tas bort, vilket slutligen kan leda till en högra kodkvalitet.</li>
+            skulle jag ganska enkelt kunna få upp den siffran. Även om kodtäckningen i sig inte ger en högre kvalitet på koden så får du genom att skriva tester som täcker större delar av koden möjligheten att utvärdera din kod bättre.
+            Detta i sin tur kan ju leda till att du inser att viss kod kanske borde skrivas på ett annat sätt eller rentav kan tas bort, vilket slutligen kan leda till en högre kodkvalitet.</li>
             <li>Complexity: Det tredje C:et handlar om kodens komplexitet vilken mätts med hjälp av några olika saker. Först har vi antalet kodrader i källkoden. Sen har vi den cyklomatiska komplexiteten som mäts genom att titta på antalet "vägar" i koden, exempelvis genom att 
-            titta på if-satser, for-looper osv där varje statement skapar en egen "väg". För att avgöra koden komplexitet tittar man även på antalet variabler och hur ofta de förekommer samt klasskopplingar som tittar på antalet klasser varje klass är beroende av. Men hjälp av bland annat dessa 4 saker
-            kan man alltså avgöra hur komplex koden är vilket i sin tur självklart påverkar koden kvalitet, komplex kod är inte nödvändigtvis lika med bra kod. Tittar man på min kod exempelvis så kunde jag på ett ställe ta bort 10 rader med kod från en if-sats vilket gjorde att min kodkvalitet höjdes från 9.0 till 9.2.</li>
+            titta på if-satser, for-loopar osv där varje statement skapar en egen "väg". För att avgöra kodens komplexitet tittar man även på antalet variabler och hur ofta de förekommer. Dessutom kan man även titta på coupling vilket är antalet klasser varje klass är beroende av. Men hjälp av bland annat dessa 4 faktorer
+            kan man alltså avgöra hur komplex koden är vilket i sin tur självklart påverkar koden kvalitet, komplex kod är alltså inte nödvändigtvis lika med bra kod. Tittar man på min kod exempelvis så kunde jag i en funktion ta bort 10 rader med kod från en if-sats vilket gjorde att min kodkvalitet höjdes från 9.0 till 9.2.</li>
             <li>Cohesion: Det fjärde C:et är Kohesion som är ett mått på till vilken grad en moduls delar är funktionellt relaterade, alltså om de är intriktade på att tillsammans uppfylla ett gemensamt syfte. Det handlar alltså om att en klass som har en hög kohesion är lättare att återanvända och kombinera med andra klasser då 
-            den har ett tydligt syfte. För att öka sin kohesion kan det vara bra att fundera på om man ska dela upp visa av sina klasser i flera mindra klasser som har ett tydligare gemensamt syfte.</li>
+            den har ett tydligt syfte. För att öka sin kohesion kan det vara bra att fundera på om man ska dela upp visa av sina klasser i flera mindre klasser som har ett tydligare gemensamt syfte.</li>
             <li>Coupling: Det femte C:et är klasskopplingar, eller coupling, som egentligen tittar på antalet klasser varje klass är beroende av. För att ha en god kodkvalitet önskar vi ha så låg coupling som möjligt då vi önskar att våra klasser ska vara så självgående som möjligt.
-            Har vi en låg coupling underlättare det även för oss om vi bestämmer oss för att gå in och ändra i våra klasser i efterhand, ger vi detta så behöver vi kanske även gå in och ändra i de klasser som har ett beronde till denna klassen.</li>
-            <li>CRAP: Det sjätte och sista C:et handlar i stora drag om att mäta hur stor risk som medkommer om en rad kod skulle förändras. CRAP beräknas med hjälp av den cyklomatiska komplexiteten och kodtäckningen. Det är förhållnadet mellan den cyklomatiska komplexiteten och kodtäckningen som avgör hur högt CRAP score koden har, vi vill självklart ha ett 
-            så lågt CRAP score som möjligt.</li>
+            Har vi en låg coupling underlättare det även för oss om vi bestämmer oss för att gå in och ändra i våra klasser i efterhand, gör vi detta så behöver vi kanske även gå in och ändra i de klasser som har ett beroende till denna klassen. Vilket vi slipper om klasserna är inte har beroenden.</li>
+            <li>CRAP: Det sjätte och sista C:et handlar i stora drag om att mäta hur stor risk som medkommer om en rad kod skulle förändras. CRAP beräknas med hjälp av den cyklomatiska komplexiteten och kodtäckningen. Det är förhållandet mellan den cyklomatiska komplexiteten och kodtäckningen som avgör hur högt CRAP score koden har, vi vill självklart ha ett 
+            så lågt CRAP score som möjligt och kan få detta genom att se till att ha god kodtäckning och låg cyklomatisk komplexitet.</li>
         </ul>
         <h2>Phpmetrics</h2>
-        <p>Skapa en rubrik “Phpmetrics” och analysera dess rapport för din kod. Använd mätvärdena för att hitta flaskhalsar och svaga punkter i din kod (minst 3 stycken). Du vill hitta kod som har förbättringspotential. Visualisera med någon representativ bild från rapporten.</p>
+        <p>Den första uppenbara flaskhalsen som jag hittade i min kod var att mina controller klasser innehöll för många router per fil vilket i phpmetrics flaggads somen violation. Att controller-klasserna innehåller för många router kan tyda på att filerna inte har specillt hög cohesion, 
+        då funktionerna med stor sannolikhet inte alla delar samma inriktning eller mål. För att lösa dessa violations skulle jag behöva fundera på hur jag kan kategorisera mina controller-klasser bättre.
+        Det skulle exempelvis kunna vara genom att dela upp de "allmänna" api routerna, api routerna kopplade till card-klasserna och api routerna kopplade till Library-klassen i olika filer.<br><br>
+        Den andra flaskhalsen som jag identifierade handlade om min App\Card som jag i rapporten tolkar är ett instabilt och abstract paket med klasser. Detta kopplas till viss del till coupling, vilket innebär att jag skulle behöva se över de olika beroendena inom klasserna i paketet.
+        Men även titta på om någon klass har beroenden utanför paketet. Tittar vi på bilden nedan från metrics rapporten så får vi en överblick av hur det ser ut med couplingen bland de olika klasserna.</p>
+        <img src="{{ asset('img/metrics.png') }}" class="img-metrics">
+        <p>Som vi kan se på bilden ovan så har vi inom App\Card paketet 15 afferenta och efferanta kopplingar, eller beroenden. För att få ner mängden beroenden hade man behövt gå in och bygga om klasserna "från grunden". 
+        Har man inte möjlighet att göra detta skulle man dock kunna jobba med andra saker för att antingen stablisera eller göra paketet mer konkret. Bland annat kolla så man inte har några "onödiga" beroenden i eller utanför paketet.<br><br>
+        Slutligen kan jag i rapporten även se att mättal som "Average cyclomatic complexity by class" är något jag skulle kunna jobba ytterligare med. Detta skulle kunna göras genom att jobba för att få en högre kodtäckning eller titta närmare på if-satser och for-loopar för att avgöra om 
+        dessa skulle kunna skrivas på ett förenklat sätt, för att få ned mängden vägar.</p>
         <h2>Scrutinizer</h2>
-        <a href="https://scrutinizer-ci.com/g/julianil/mvc/inspections/9e8fdee9-18cc-4f99-a3ef-196a5393e4bc/log"><img src="https://scrutinizer-ci.com/g/julianil/mvc/badges/build.png?b=main" alt="build score"></a>
-        <a href="https://scrutinizer-ci.com/g/julianil/mvc/?branch=main"><img src="https://scrutinizer-ci.com/g/julianil/mvc/badges/coverage.png?b=main" alt="coverage score"></a>
-        <a href="https://scrutinizer-ci.com/g/julianil/mvc/?branch=main"><img src="https://scrutinizer-ci.com/g/julianil/mvc/badges/quality-score.png?b=main" alt="quality score"></a>
-        <p>Skapa en rubrik “Scrutinizer” och analysera dess rapport för din kod. Gör på samma sätt som du gjorde med Phpmetrics.</p>
+        <div class="analys-scores">
+            <a href="https://scrutinizer-ci.com/g/julianil/mvc/inspections/9e8fdee9-18cc-4f99-a3ef-196a5393e4bc/log"><img src="https://scrutinizer-ci.com/g/julianil/mvc/badges/build.png?b=main" alt="build score"></a>
+            <a href="https://scrutinizer-ci.com/g/julianil/mvc/?branch=main"><img src="https://scrutinizer-ci.com/g/julianil/mvc/badges/coverage.png?b=main" alt="coverage score"></a>
+            <a href="https://scrutinizer-ci.com/g/julianil/mvc/?branch=main"><img src="https://scrutinizer-ci.com/g/julianil/mvc/badges/quality-score.png?b=main" alt="quality score"></a>
+        </div>
+        <p>Överlag kom scrutinizer-rapporten tillbaka med ett bra första resultat, men självklart finns det utrymme för förbättring. Först och främst fanns det ett antal issues som skulle behöva lösas.</p>
+        <img src="{{ asset('img/scrutinizer2.png') }}" class="img-scrutinizer">
+        <p>Ovan ser vi antalet issues som scrutinizer hittade i vår kod. Tittar man lite närmare på dessa så var de flesta små fixar som exempelvis oanvänd kod, som exemplet nedan visar.</p>
+        <img src="{{ asset('img/scrutinizer1.png') }}" class="img-scrutinizer">
+        <p>Dessa små ändringar går snabbt att justera då de är helt onödiga från första början. Men har man många sånna här, som ibland kan vara lätta att missa, så kan det göra stor skillnad för kodens helhets kvalitet. Scrutinizer är i dessa fall ett utmärkt verktyg 
+        för att hjälpa oss att hitta dessa små saker som vi själva lätt missar.</p>
+        <img src="{{ asset('img/scrutinizer3.png') }}" class="img-scrutinizer">
+        <p>En annan sak som blev tydlig när jag först såg rapporten var mina olika klasseras rating, där alla klasser fick A. Däremot var det två klass-funktioner som fick ett B, drawCard() i card-klassen och updateDeck() i deckOfCards-klassen. Både dessa funktioner innehåller flera långa if eller foreach-satser, de har alltså båda en hög komplexitet. Dessutom märkte jag att de båda även hade en ganska hög CRAP.
+        För att få upp betyget på dessa funktioner skulle man antagligen behöva jobba med att få ned detta CRAP score en aning. Som tidigare nämnt baseras CRAP score i stora drag på den cyklomatiska komplexiteten i förhållande till kodtäckning. För att få ned detta börjar man enklast med att kolla över satserna i koden för att se om dessa på något sätt kan förenklas eller skrivas om för att få ned den cyklomatiska komplexiteten.
+        När man gjort detta kan man även se till att ha en så bra kodtäckning som möjligt på dessa rader med kod då även detta kan få ned CRAP scoren.<br><br>
+        Slutligen blev det väldigt tydligt i rapporten att det går att göra väldigt mycket för att öka kodtäckningen som initellt låg på endast 24%. Denna låga siffra beror på att inga tester lagts till för någon av controller-, entity- eller repository klasserna. Bara genom att lägga till väldigt grundläggande tester för dessa olika paket skulle man säkert kunna få upp den totala kodtäcknignen till iallafall en gulsiffra istället för en röd.
         <h2>Förbättringar</h2>
-        <ol>
-            <li>Det första jag tänker gå in och justera de de issues som scrutinizer lokaliserade, detta då dessa är mindra buggar och liknande som jag med enkla medel kan fixa. Jag tror inte dessa på något 
-            sätt är avgörande för kvaliten på min kod elelr hur högt score jag får, men de känns ändå värt att fixa till då det är snabbt och enkelt gjort.</li><br>
-            <li>Den andra delen jag tänker fixa i mon kod handlar om att jobba med min kodtäckning, i nuläget har jag endast skrivit tester för mina card-klasser vilket procentuellt blir ett väldigt lågt score.
-            Så jag tänker gå in och föröska skriva tester för så många delar som möjligt med målet att höja min kodtäckning, hade jag fått upp den till ett gult värde istället för rött hade jag varit mer än nöjd.</li><br>
-            <li>Jag ska även försöka lösa de violations som jag fått i metrics-rapporten, detta då de är kopplade till de classer jag själv skrivit. På grund av detta tänker jag att det kan bli ett bra tillf'lla för mig att 
-            skapa en ännu djupare förståelse för koden i min klasser. SKulle jag lyckas lösa alla dessa violations så tänker jag att det rimligen borde höja kvaliten på dom, litegrann iallafall.
-            Genom att flytta runt bland mina routes och placera ut dessa i flera olika controller filer, så att varje controller innehåller färra routes. Lyckades jag lösa flera violations. Jag lyckades även lösa en violation genom att 
-            få ner complexiteten på min DeckOfCards-klass. Detta gjorde jag främst genom att förenkla en av if-satserna i en klass-funktion.</li>
+        <ol class="number-list">
+            <li>Det första jag tänker gå in och justera är de issues som scrutinizer lokaliserade, detta då dessa är mindra buggar och liknande som jag med enkla medel kan fixa. Jag tror inte dessa på något 
+            sätt är avgörande för kvaliten på min kod eller hur högt score jag får, men de känns ändå värt att fixa till då det är snabbt och enkelt gjort.</li>
+            <li>Den andra delen jag tänker fixa i min kod handlar om att jobba med min kodtäckning, i nuläget har jag endast skrivit tester för mina card-klasser vilket procentuellt blir ett väldigt lågt score.
+            Så jag tänker gå in och försöka skriva tester för så många delar som möjligt med målet att höja min kodtäckning, hade jag fått upp den till ett gult värde istället för rött hade jag varit mer än nöjd.</li>
+            <li>Jag ska även försöka lösa de violations som jag fått i metrics-rapporten, detta då de är kopplade till de klasser jag själv skrivit. På grund av detta tänker jag att det kan bli ett bra tillfälle för mig att 
+            skapa en ännu djupare förståelse för koden i min klasser. Skulle jag lyckas lösa alla dessa violations så tänker jag att det rimligen borde höja kvaliten på dom, litegrann iallafall.</li>
         </ol>
-        Implementera sedan förbättringarna.
-        Analysera därefter rapporterna från phpmetrics och Scrutinizer och notera de nya mätvärdena.</p>
+        <p>Det som jag slutligen valde att göra var att flytta runt bland mina routes och placera ut dessa i flera olika controller filer, så att varje controller innehåller färra routes. Detta löste bland annat ett antal av mina violations i scrutinizer.
+        Jag lyckades även lösa en violation genom att få ner complexiteten på min DeckOfCards-klass. Detta gjorde jag främst genom att förenkla en av if-satserna i en klass-funktion.
+        När det kommer till att skriva tester så fick jag till lite fler tester på min klasserna i Card paketet samt ett antal tester på klasserna i entity och repository paket. Detta höjde slutligen min kodtäckning till 31%. Det var inte så högt som jag hade velat men det var de jag lyckades med denna gången.
+        Jag hade gärna fått till lite tester på mina controller klasser också men det lyckades tyvärr aldrig. Det känns lite tråkigt, framför allt in för projektet men tyvärr fanns det inte tillräckligt med tid. Hade jag lyckats med detta tror jag abolsut att jag hade kunant få min kodtäckning att bli gul istället för röd.
+        Det hade även gjort andra värden bättre som exemplvis min genomsnittliga cyklomatiska komplexitet.
+        Nedan följer värdena för min kod.</p>
         <div class="analys-value">
             <div>
                 <h3>Mina initiella mätvärden låg på:</h3>
@@ -60,22 +84,23 @@
                 <h3>Mina slutliga mätvärden låg på:</h3>
                 <p>Scrutinizer 9.90</p>
                 <p>Coverarge 31%</p>
-                <p>Average cyclomatic complexity by class 3.88</p>
+                <p>Average cyclomatic complexity by class 3.94</p>
                 <p>Average LCOM0 1.94</p>
             </div>
             <div>
                 <h3>Skillnad:</h3>
                 <p>Scrutinizer 0</p>
                 <p>Coverarge +7%</p>
-                <p>Average cyclomatic complexity by class -0.62</p>
+                <p>Average cyclomatic complexity by class -0.56</p>
                 <p>Average LCOM0 -0.2</p>
             </div>
         </div>
         <h2>Diskussion</h2>
-        <p>Avsluta med ett stycke “Diskussion” där du diskuterar kort kring det du nyss gjort.
-        Kan man aktivt jobba med kodkvalitet och “clean code” på detta sättet?
-        Finns det fördelar och kanske nackdelar?
-        Ser du andra möjligheter att jobba mot “clean code”?</p>
+        <p>Jag upplevde detta som ett väldigt bra sätt för mig att få en djupare förståelse för vad kodkvalitet är och vilka faktorer som påverkar den. 
+        Jag tror att det är lätt att fastna i de uppbara delarna och glömma bort saker som coupling, kodtäckning och antal kodrader. Genom att göra dessa analyser 
+        fick jag hjälp att identifiera ett antal områden där jag kunde förbättra min kod, som jag antagligen inte hade tänkt på annars. Men i nästa projekt hade det varit roligt 
+        att använda dessa verktyg lite mer från början. Då tror jag att min slutprodukt hade kunnat bli ännu bättre då jag hade kunnat ha med mig rätt tänk kring att skriva tester och klasser osv från början.
+        När det kom först nu på slutet så kändes vissa saker som att gå in och ändra beroende mellan mina klasser etc som lite för mycket jobb. Så jag tycker aboslut det här är bra sätt att aktivit jobba med "clean code".</p>
     </div>
 
 {% endblock %}

@@ -121,6 +121,7 @@ class LibraryController extends AbstractController
         $isbn = $request->request->get('isbn');
         $writer = $request->request->get('writer');
         $image = $request->request->get('image');
+        $description = $request->request->get('description');
 
         $book = $libraryRepository->find($id);
 
@@ -134,6 +135,7 @@ class LibraryController extends AbstractController
         $book->setIsbn($isbn);
         $book->setWriter($writer);
         $book->setImage($image);
+        $book->setImage($description);
         $libraryRepository->save($book, true);
 
         return $this->redirectToRoute('library_show_all');
