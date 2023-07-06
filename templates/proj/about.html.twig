@@ -1,0 +1,12 @@
+{% extends "projbase.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1>Om projektet</h1>
+    <p class="author">Skriven 2023-04-05 av Julia Nilsson</p>
+    <p>en kort introduktion till ditt projekt och vad det handlar om.</p>
+   <p>Mål 5 beskrivs på den officiella hemsidan enligt följande “Jämställdhet mellan kvinnor och män är en förutsättning för en hållbar och fredlig utveckling. Jämställdhet handlar om en rättvis fördelning av makt, inflytande och resurser. Alla former av våld, diskriminering och skadliga sedvänjor mot kvinnor och flickor drabbar såväl individen som hela samhället. Det har bevisats om och om igen att politisk, ekonomisk och social jämlikhet mellan kvinnor och män bidrar till alla dimensioner av hållbar utveckling.
+    Att leva ett liv fritt från våld och diskriminering är en grundläggande mänsklig rättighet och helt avgörande för att människor och samhällen ska utveckla sin fulla potential.”</p>
+    <a href="{{ path('aboutdatabase') }}">Läs mer om databasen här</a>
+{% endblock %}

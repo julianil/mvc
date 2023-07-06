@@ -1,0 +1,304 @@
+{% extends "projbase.html.twig" %}
+
+{% block title %}Hemarbete{% endblock %}
+
+{% block body %}
+     <div class="mini-nav">
+        <ul>
+            <li><a href="{{ path('economic') }}">Ekonomisk jämställdhet</a></li>
+            <li><a href="{{ path('education') }}">Jämställd utbildning</a></li>
+        </ul>
+    </div>
+    <h1>Jämn fördelning av det obetalda hem- och omsorgsarbetet</h1>
+    <p class="author">Skriven 2023-06-25 av Julia Nilsson</p>
+    <div>
+        <p>Att ha en jämn fördelning av obetalt hem- och omsorgsarbete är även det ett viktigt steg mot jämställdhet, om en på ett mer personligt plan. Men obetalt hem- och omsorgsarbete syftar i detta fall på alla typer av arbeten och sysslor som vi utför hemma eller utanför vårt betalda arbete. Detta skulle alltså kunna vara allt ifrån omsorg av barn och släktingar till hushållssysslor såsom handling, städning och matlagning. I denna indikator har man även valt att räkna in saker som resor till och från affären etc som obetald arbetstid. Nedan finner vi den sammanställda datan för indikatorn som har fokus på hur kvinnor jämfört med män genomsnittligt fördelar sin fritid, på helger och vardagar. Men även hur mycket tid kvinnor respektive män lägger på olika typer av hem- och omsorgsarbete.</p>
+    </div>
+    <div class="pie-container">
+        <div class="pie-container2">
+        <h3>Genomsnittlig tidsanvänding vardagar för vuxna (20-64 år)</h3>
+            <div id="container1c"></div>
+            <div id="container2c"></div>
+            <div id="container3c"></div>
+            <div id="container4c"></div>
+            <div id="container5c"></div>
+            <div id="container6c"></div>
+        </div>
+        <div class="pie-container2">
+        <h3>Genomsnittlig tidsanvänding helger för vuxna (20-64 år)</h3>
+            <div id="container7c"></div>
+            <div id="container8c"></div>
+            <div id="container9c"></div>
+            <div id="container10c"></div>
+            <div id="container11c"></div>
+            <div id="container12c"></div>
+        </div>
+    </div>
+    <p>I cirkeldiagrammen ovan ser vi hur kvinnor respektive män fördelar sin fritid på olika hem- och omsorgsarbeten. I cirkeldiagrammen ser vi det procentuellt fördelat och klickar vi på en tårtbit ser vi värdet minuter. Diagrammen till höger representerar vardagar och diagrammen till vänster representerar helger. Vi kan tydligt se att varken mäns eller kvinnor tidsfördelning har förändrat något markant, varken för helger eller vardagar, mellan åren 1990-2010. Jämför vi kvinnor och män till vardags så kan vi se att män lägger mer tid på betalt arbete än kvinnor som istället lägger mer tid på obetalt arbete. På helger skiljer det sig mest mellan fritid och personliga behov. Här lägger kvinnor mer tid på personliga behov medan män lägger mer tid på fritid.</p>
+    <div class="container">
+        <div id="container13c"></div>
+    </div>
+    <p>I diagrammet ovan ser vi hur kvinnor och män fördelar sin tid på olika aktiviteter i hemmet. Totalt sett ser vi att år 2010 la män kvinnor 25% mer tid på obetalt hem- och omsorgsarbete. Kvinnor la mer tid på hushållsarbete, matlagning, städning, diskning, tvätt, inköp och omsorg av barn. Män la endast mer tid på underhållsarbete än vad kvinnor gjorde. När det kommer till omsorg av andra än barn samt resande i koppling till sysslor var det jämnt fördelat mellan könen. Slutsatsen vi kan dra är att kvinnor i genomsnitt gör betydligt mer i hemmet än vad män gör, de jobbar alltså fler timmar obetalt. För att lösa detta krävs det mycket jobb på personlig plan för att fördela sysslor jämnt i sitt hushåll. Men det krävs även en tydlig förändring i våra attityder till könsroller och liknande. </p>
+<script type="text/javascript" charset="utf-8">
+    var weekW =
+    [{% for time in week %}
+        [{{ time.year }},{{ time.women }},'{{ time.category }}'],
+    {% endfor %}]
+
+    data1 = []
+    var i = 0;
+    do {
+        data1.push([weekW[i][2], weekW[i][1]]);
+        i++;
+    }
+    while (i < 6);
+
+    data2 = []
+    do {
+        data2.push([weekW[i][2], weekW[i][1]]);
+        i++;
+    }
+    while (i < 12);
+
+    data3 = []
+    do {
+        data3.push([weekW[i][2], weekW[i][1]]);
+        i++;
+    }
+    while (i < 18);
+
+    var weekM =
+    [{% for time in week %}
+        [{{ time.year }},{{ time.men }},'{{ time.category }}'],
+    {% endfor %}]
+
+    data4 = []
+    var i = 0;
+    do {
+        data4.push([weekM[i][2], weekM[i][1]]);
+        i++;
+    }
+    while (i < 6);
+
+    data5 = []
+    do {
+        data5.push([weekM[i][2], weekM[i][1]]);
+        i++;
+    }
+    while (i < 12);
+
+    data6 = []
+    do {
+        data6.push([weekM[i][2], weekM[i][1]]);
+        i++;
+    }
+    while (i < 18);
+
+    var weekendW =
+    [{% for time in weekend %}
+        [{{ time.year }},{{ time.women }},'{{ time.category }}'],
+    {% endfor %}]
+
+    data7 = []
+    var i = 0;
+    do {
+        data7.push([weekendW[i][2], weekendW[i][1]]);
+        i++;
+    }
+    while (i < 6);
+
+    data8 = []
+    do {
+        data8.push([weekendW[i][2], weekendW[i][1]]);
+        i++;
+    }
+    while (i < 12);
+
+    data9 = []
+    do {
+        data9.push([weekendW[i][2], weekendW[i][1]]);
+        i++;
+    }
+    while (i < 18);
+
+    var weekendM =
+    [{% for time in weekend %}
+        [{{ time.year }},{{ time.men }},'{{ time.category }}'],
+    {% endfor %}]
+
+    data10 = []
+    var i = 0;
+    do {
+        data10.push([weekendM[i][2], weekendM[i][1]]);
+        i++;
+    }
+    while (i < 6);
+
+    data11 = []
+    do {
+        data11.push([weekendM[i][2], weekendM[i][1]]);
+        i++;
+    }
+    while (i < 12);
+
+    data12 = []
+    do {
+        data12.push([weekendM[i][2], weekendM[i][1]]);
+        i++;
+    }
+    while (i < 18);
+
+    var data13 =
+    [{% for chore in chores %}
+        ['{{ chore.category }}',{{ chore.women }},{{ chore.men }}],
+    {% endfor %}]
+
+    anychart.onDocumentReady(function () {
+    var data = anychart.data.set(data1);
+    var first1 = data.mapAs({ x: 0, value: 1 });
+
+    var data = anychart.data.set(data2);
+    var first2 = data.mapAs({ x: 0, value: 1 });
+
+    var data = anychart.data.set(data3);
+    var first3 = data.mapAs({ x: 0, value: 1 });
+
+    var data = anychart.data.set(data4);
+    var first4 = data.mapAs({ x: 0, value: 1 });
+
+    var data = anychart.data.set(data5);
+    var first5 = data.mapAs({ x: 0, value: 1 });
+
+    var data = anychart.data.set(data6);
+    var first6 = data.mapAs({ x: 0, value: 1 });
+
+    var data = anychart.data.set(data7);
+    var first7 = data.mapAs({ x: 0, value: 1 });
+
+    var data = anychart.data.set(data8);
+    var first8 = data.mapAs({ x: 0, value: 1 });
+
+    var data = anychart.data.set(data9);
+    var first9 = data.mapAs({ x: 0, value: 1 });
+
+    var data = anychart.data.set(data10);
+    var first10 = data.mapAs({ x: 0, value: 1 });
+
+    var data = anychart.data.set(data11);
+    var first11 = data.mapAs({ x: 0, value: 1 });
+
+    var data = anychart.data.set(data12);
+    var first12 = data.mapAs({ x: 0, value: 1 });
+
+    var data = anychart.data.set(data13);
+    var first13 = data.mapAs({ x: 0, value: 1 });
+    var second13 = data.mapAs({ x: 0, value: 2 });
+
+    var chart1 = anychart.pie(first1);
+    var chart2 = anychart.pie(first2);
+    var chart3 = anychart.pie(first3);
+    var chart4 = anychart.pie(first4);
+    var chart5 = anychart.pie(first5);
+    var chart6 = anychart.pie(first6);
+    var chart7 = anychart.pie(first7);
+    var chart8 = anychart.pie(first8);
+    var chart9 = anychart.pie(first9);
+    var chart10 = anychart.pie(first10);
+    var chart11 = anychart.pie(first11);
+    var chart12 = anychart.pie(first12);
+    var chart13 = anychart.column();
+
+    series = chart13.column(first13);
+    series.name("Kvinnor");
+    series.xPointPosition(0.45);
+    series = chart13.column(second13);
+    series.name("Män");
+    series.xPointPosition(0.25);
+    chart13.yAxis().title('Minuter');
+    chart13.xAxis().labels().padding(5);
+
+    chart1.animation(true);
+    chart2.animation(true);
+    chart3.animation(true);
+    chart4.animation(true);
+    chart5.animation(true);
+    chart6.animation(true);
+    chart7.animation(true);
+    chart8.animation(true);
+    chart9.animation(true);
+    chart10.animation(true);
+    chart11.animation(true);
+    chart12.animation(true);
+    chart13.animation(true);
+
+    chart1.legend().enabled(true);
+    chart2.legend().enabled(true);
+    chart3.legend().enabled(true);
+    chart4.legend().enabled(true);
+    chart5.legend().enabled(true);
+    chart6.legend().enabled(true);
+    chart7.legend().enabled(true);
+    chart8.legend().enabled(true);
+    chart9.legend().enabled(true);
+    chart10.legend().enabled(true);
+    chart11.legend().enabled(true);
+    chart12.legend().enabled(true);
+    chart13.legend().enabled(true);
+
+    chart1.title('Kvinnor- 1990/1991');
+    chart2.title('Kvinnor- 2000/2001');
+    chart3.title('Kvinnor- 2010/2011');
+    chart4.title('Män- 1990/1991');
+    chart5.title('Män- 2000/2001');
+    chart6.title('Män- 2010/2011');
+    chart7.title('Kvinnor- 1990/1991');
+    chart8.title('Kvinnor- 2000/2001');
+    chart9.title('Kvinnor- 2010/2011');
+    chart10.title('Män- 1990/1991');
+    chart11.title('Män- 2000/2001');
+    chart12.title('Män- 2010/2011');
+    chart13.title('Tid för obetalt arbete för personer 20-64 år efter aktivitet 2010/11');
+
+    chart1.palette(['#671040', '#cb90b1', '#f0dce7', '#3e5892', '#abb8d7', '#d9e1f3']);
+    chart2.palette(['#671040', '#cb90b1', '#f0dce7', '#3e5892', '#abb8d7', '#d9e1f3']);
+    chart3.palette(['#671040', '#cb90b1', '#f0dce7', '#3e5892', '#abb8d7', '#d9e1f3']);
+    chart4.palette(['#671040', '#cb90b1', '#f0dce7', '#3e5892', '#abb8d7', '#d9e1f3']);
+    chart5.palette(['#671040', '#cb90b1', '#f0dce7', '#3e5892', '#abb8d7', '#d9e1f3']);
+    chart6.palette(['#671040', '#cb90b1', '#f0dce7', '#3e5892', '#abb8d7', '#d9e1f3']);
+    chart7.palette(['#671040', '#cb90b1', '#f0dce7', '#3e5892', '#abb8d7', '#d9e1f3']);
+    chart8.palette(['#671040', '#cb90b1', '#f0dce7', '#3e5892', '#abb8d7', '#d9e1f3']);
+    chart9.palette(['#671040', '#cb90b1', '#f0dce7', '#3e5892', '#abb8d7', '#d9e1f3']);
+    chart10.palette(['#671040', '#cb90b1', '#f0dce7', '#3e5892', '#abb8d7', '#d9e1f3']);
+    chart11.palette(['#671040', '#cb90b1', '#f0dce7', '#3e5892', '#abb8d7', '#d9e1f3']);
+    chart12.palette(['#671040', '#cb90b1', '#f0dce7', '#3e5892', '#abb8d7', '#d9e1f3']);
+    chart13.palette(['#671040', '#7f94c1']);
+
+    chart1.container('container1c');
+    chart2.container('container2c');
+    chart3.container('container3c');
+    chart4.container('container4c');
+    chart5.container('container5c');
+    chart6.container('container6c');
+    chart7.container('container7c');
+    chart8.container('container8c');
+    chart9.container('container9c');
+    chart10.container('container10c');
+    chart11.container('container11c');
+    chart12.container('container12c');
+    chart13.container('container13c');
+    chart1.draw();
+    chart2.draw();
+    chart3.draw();
+    chart4.draw();
+    chart5.draw();
+    chart6.draw();
+    chart7.draw();
+    chart8.draw();
+    chart9.draw();
+    chart10.draw();
+    chart11.draw();
+    chart12.draw();
+    chart13.draw();
+    });
+</script>
+{% endblock %}

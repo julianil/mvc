@@ -1,0 +1,43 @@
+{% extends "projbase.html.twig" %}
+
+{% block title %}api{% endblock %}
+
+{% block body %}
+    <h1>API:er projekt</h1>
+    <div class="apier">
+        <div class="api-proj">
+            <p>Här hittar du all information för samtliga av mål 5 delmål.</p>
+            <button><a href="{{ path('api_milestones') }}">Delmål</a></button>
+        </div>
+        <div class="api-proj">
+            <p>Här finns all statistik kopplad till indikationen "Ekonomisk jämställdhet".</p>
+            <button><a href="{{ path('api_economy') }}">Ekonomi statistik</a></button>        
+        </div>
+        <div class="api-proj">
+            <p>Här finns all statistik kopplad till indikationen "Jämställd utbildning".</p>
+            <button><a href="{{ path('api_education') }}">Utbildnings statistik</a></button>
+        </div>
+       <div class="api-proj">
+            <p>Här finns all statistik kopplad till indikationen "Jämn fördelning av det obetalda hem- och omsorgsarbetet".</p>
+            <button><a href="{{ path('api_homelabor') }}">Hemarbetes statistik</a></button>
+        </div>
+        <div class="api-proj">
+            <p>Här kan du välja att titta på statistiken kopplade till en viss tabell i en av ovanstående indikationer.</p>
+            <form method="post" action="{{ path('api_indicator_post') }}"">
+                <select class="table-select" name="table">
+                    <option value="-99">Välj en tabell</option>
+                    <option value="eco1">Ekonomi 1</option>
+                    <option value="eco2">Ekonomi 2</option>
+                    <option value="eco3">Ekonomi 3</option>
+                    <option value="edu1">Utbildning 1</option>
+                    <option value="edu2">Utbildning 2</option>
+                    <option value="edu3">Utbildning 3</option>
+                    <option value="hla1">Hemarbete 1</option>
+                    <option value="hla2">Hemarbete 2</option>
+                    <option value="hla3">Hemarbete 3</option>
+                </select><br>
+                <input type="submit" name="do_it" value="Visa tabellvärden">
+            </form>
+        </div>
+    </div>
+{% endblock %}

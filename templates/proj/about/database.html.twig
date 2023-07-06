@@ -1,0 +1,15 @@
+{% extends "projbase.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <h1>Databas</h1>
+    <p class="author">Skriven 2023-04-05 av Julia Nilsson</p>
+    <img class="uml-proj" src="{{ asset('img/uml-projekt.png') }}" alt="">
+    <p>Jag valde att skapa en grundtabell för mål 5. Denna kopplas till ihop med både statistik- och milestones-tabellen genom en kopplingstabell, goal_tabelles, för att säkerställa att förhållande blev 1 N. I goal_tabelles kopplar jag samman indikatorernas namn från goal5-tabellen med koderna som jag skapat för att särskilja olika typer av data i statistik och milestone-tabellerna.<br><br>
+    Jag valde att använda mig av SQLite precis som jag gjort tidigare i denna kurs, det kändes enklast och gick hyfsat smidigt genom hela projektet.<br><br>
+    Berätta om du gjorde enhetstester mot databasen, Berätta om/hur du lyckades med enhetstester på Scrutinizer med databasen.<br><br>
+    Berätta med egna ord (cirka 15 meningar) om hur du ser på fördelar, nackdelar, likheter och skillnader mellan ORM och det sätt vi jobbade med databasen i databaskursen.<br>
+    Överlag så skulle jag säga att jag föredrar att jobba mot databasen på de sätt som vi gjorde i databaskursen. Jag upplevde att jag där var flexibel med vad jag kunde göra och plocka ut från databasen etc jämfört med hur man jobbar med ORM. Samtidigt kan jag absolut se varför ORM är ett bra sätt att jobba mot databaser om man är lite mindre erfaren i SQL osv då det inte krävs speciellt mycket kunskaper i databaser för att göra. 
+    </p>
+{% endblock %}

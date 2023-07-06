@@ -1,0 +1,159 @@
+{% extends "projbase.html.twig" %}
+
+{% block title %}Ekonomisk{% endblock %}
+
+{% block body %}
+    <div class="mini-nav">
+        <ul>
+            <li><a href="{{ path('education') }}">Jämställd utbildning</a></li>
+            <li><a href="{{ path('homelabor') }}">Fördelning av hemarbete </a></li>
+        </ul>
+    </div>
+    <h1>Ekonomisk jämställdhet</h1>
+    <p class="author">Skriven 2023-06-25 av Julia Nilsson</p>
+    <div>
+        <p>Ekonomisk jämställdhet är en av förutsättningarna för att vi ska kunna leva i ett jämställt samhälle. I grunden handlar det bland annat om lika betalt för lika arbete, oavsett kön. Faktorer som bidrag, sjukersättning och föräldraledighet spelar självklart även in i detta. Nedan presenteras delar av den insamlade datan för denna indikation, fokuset som valts ut är på grundlön, vård av barn och föräldraledighet då dessa är faktorer som påverkar de flesta människors ekonomi någon gång i livet.</p>
+    </div>
+    <div class="container">
+        <div id="container1a"></div>
+        <div id="container2a"></div>
+    </div>
+    <p>I det vänstra diagrammet ser vi kvinnor respektive mäns genomsnittliga löneutveckling mellan år 2010-2017. Det vi ganska tydligt kan se är att löneutvecklingen både för kvinnor och män har gått ganska jämnt uppåt. Tittar vi på det högra diagrammet kan vi se har stor andel av mäns lön kvinnor tjänar i procent. Denna siffra låg 2010 på 72% och låg 2017 på 77% vilket är en förbättring men inte ens i närheten av tillräckligt. Det siffran visar på är indirekt att kvinnor antingen tjänar mindre pengar för samma jobb som eller att män har jobb med högre löner.</p>
+    <div class="container">
+        <div id="container3a"></div>
+        <div id="container4a">
+            <p>I detta diagram får vi en överblick över hur fördelningen av föräldraledighet såg ut mellan 2011-2018. Vi kan se hur många män respektive kvinnor som har varit hemma från jobbet en hel vecka pga föräldraledighet och det blir tydligt att det är betydligt fler kvinnor. Vi kan även se att denna trend har förändrat något över tid, det är 2017 en marginellt lägre siffra för kvinnor men betydligt fler män jämfört med 2011, vilket indikerar att utvecklingen går åt rätt håll.</p>
+        </div>
+    </div>
+    <div class="container">
+        <div id="container5a"></div>
+        <div id="piecharts">
+            <div id="container6a"></div>
+            <div id="container7a"></div>
+        </div>
+    </div>
+    <p>I det vänstra diagrammet ser vi hur utvecklingen för ersatta dagar för vård av barn ser ut för män och kvinnor, mellan 1974-2018. Vi ser en ganska snabb utveckling fram till 2005 som sedan avtar något sen dess, även om den inte helt stannat av. I diagrammen till höger ser vi en tydlig överblick på hur det såg ut 1974 och 2018 med fördelningen. Här ser vi en väldigt positiv utveckling där vi går från 100% kvinnor och 0% män till en fördelning på 71% kvinnor och 29% män.</p>
+<script type="text/javascript" charset="utf-8">
+    var data1 = 
+    [{% for lon in lonutveckling %}
+        [{{ lon.year }},{{ lon.women }},{{ lon.men }}],
+    {% endfor %}]
+
+    var data2 = 
+    [{% for lon in lonutveckling %}
+        [{{ lon.year }},{{ lon.difference }}],
+    {% endfor %}]
+
+    var data3 = 
+    [{% for pay in payedleave %}
+        [{{ pay.year }},{{ pay.women }},{{ pay.men }}],
+    {% endfor %}]
+
+    var data4 = 
+    [{% for pay in childcare %}
+        [{{ pay.year }},{{ pay.women }},{{ pay.men }}],
+    {% endfor %}]
+
+    var data5 = [];
+
+    data5.push(['Kvinnor', data4[0][1]]);
+    data5.push(['Män', data4[0][2]]);
+
+    var data6 = [];
+
+    data6.push(['Kvinnor', data4[data4.length-1][1]]);
+    data6.push(['Män', data4[data4.length-1][2]]);
+
+    anychart.onDocumentReady(function () {
+    var data = anychart.data.set(data1);
+    var first = data.mapAs({ x: 0, value: 1 });
+    var second = data.mapAs({ x: 0, value: 2 });
+
+    var data = anychart.data.set(data3);
+    var first3 = data.mapAs({ x: 0, value: 1 });
+    var second3 = data.mapAs({ x: 0, value: 2 });
+
+    var data = anychart.data.set(data4);
+    var first4 = data.mapAs({ x: 0, value: 1 });
+    var second4 = data.mapAs({ x: 0, value: 2 });
+
+    var data = anychart.data.set(data5);
+    var first5 = data.mapAs({ x: 0, value: 1 });
+
+    var data = anychart.data.set(data6);
+    var first6 = data.mapAs({ x: 0, value: 1 });
+
+    var chart1 = anychart.line();
+    var chart2 = anychart.column();
+    var chart3 = anychart.line();
+    var chart4 = anychart.line();
+    var chart5 = anychart.pie(first5);
+    var chart6 = anychart.pie(first6);
+
+    var firstLine = chart1.line(first);
+    firstLine.name("Kvinnor");
+    var secondLine = chart1.line(second);
+    secondLine.name("Män");
+    var thirdColumn = chart2.column(data2);
+    thirdColumn.name("Kvinnor andel (%) män");
+    var firstLine3 = chart3.line(first3);
+    firstLine3.name("Kvinnor");
+    var secondLine3 = chart3.line(second3);
+    secondLine3.name("Män");
+    var firstLine4 = chart4.line(first4);
+    firstLine4.name("Kvinnor");
+    var secondLine4 = chart4.line(second4);
+    secondLine4.name("Män");
+
+    chart1.animation(true);
+    chart2.animation(true);
+    chart3.animation(true);
+    chart4.animation(true);
+
+    chart1.legend().enabled(true);
+    chart2.legend().enabled(true);
+    chart3.legend().enabled(true);
+    chart4.legend().enabled(true);
+
+    chart1.yScale().minimum(0);
+    chart3.yScale().minimum(0);
+    chart1.yAxis().title('Svenska kronor');
+    chart1.xAxis().title('År');
+    chart2.yAxis().title('Procent');
+    chart2.xAxis().title('År');
+    chart3.yAxis().title('Antal');
+    chart3.xAxis().title('År');
+    chart4.yAxis().title('Procent');
+    chart4.xAxis().title('År');
+    chart1.xAxis().labels().padding(5);
+    chart2.xAxis().labels().padding(3);
+    chart3.xAxis().labels().padding(5);
+    chart4.xAxis().labels().padding(5);
+
+    chart3.title('Frånvarande hela veckan pga föräldrarledighet');
+    chart4.title('Fördelning av ersatta dagar för vård av barn');
+    chart5.title('1974');
+    chart6.title('2018');
+
+    chart1.palette(['#671040', '#7f94c1']);
+    chart2.palette(['#671040']);
+    chart3.palette(['#671040', '#7f94c1']);
+    chart4.palette(['#671040', '#7f94c1']);
+    chart5.palette(['#671040', '#7f94c1']);
+    chart6.palette(['#671040', '#7f94c1']);
+
+    chart1.container('container1a');
+    chart2.container('container2a');
+    chart3.container('container3a');
+    chart4.container('container5a');
+    chart5.container('container6a');
+    chart6.container('container7a');
+    chart1.draw();
+    chart2.draw();
+    chart3.draw();
+    chart4.draw();
+    chart5.draw();
+    chart6.draw();
+    });
+</script>
+{% endblock %}

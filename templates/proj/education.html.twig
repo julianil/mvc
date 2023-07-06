@@ -1,0 +1,213 @@
+{% extends "projbase.html.twig" %}
+
+{% block title %}Utbildning{% endblock %}
+
+{% block body %}
+     <div class="mini-nav">
+        <ul>
+            <li><a href="{{ path('economic') }}">Ekonomisk jämställdhet</a></li>
+            <li><a href="{{ path('homelabor') }}">Fördelning av hemarbete </a></li>
+        </ul>
+    </div>
+    <h1>Jämställd utbildning</h1>
+    <p class="author">Skriven 2023-06-25 av Julia Nilsson</p>
+    <div>
+        <p>En jämställd utbildning är även det en otroligt viktig faktor när det kommer till frågan om jämställdhet mellan könen. Alla människor oavsett kön ska ha samma tillgång och möjligheter att få en utbildning. Sen hur lång utbildning man väljer att ta får vara upp till varje person men ska självklart vara meriterande när det kommer till exempelvis ersättning. När det kommer till resultat i skolan visar även dessa på intressanta aspekter som bör uppmärksammas. Nedan ser vi därför den sammanställda datan för de utvalda områdena inom jämställd utbildning,     studieresultat och utbildningsnivå på kvinnor respektive män.</p>
+    </div>
+    <div class="container">
+        <div id="container1b"></div>
+        <div id="container2b"></div>
+    </div>
+    <p>I dessa diagram ovan ser vi hur flickor och pojkar i årskurs 9 presterade i PISA’s undersökning mellan 2000-2018. I det vänstra diagrammet har vi resultatet för Läsnings delen där vi tydligt kan se att flickorna presterade högre än pojkarna alla år. I det högre diagrammet har vi matematikdelen där flickor och pojkar ligger betydligt jämnare under alla år, även om flickorna aldrig legat under pojkarna.</p>
+    <div class="container">
+        <div id="container3b"></div>
+        <div id="container4b"></div>
+    </div>
+    <p>Cirkeldiagrammen ovan visar det genomsnittliga meritvärdet för flickor och pojkar när det gick ut årskurs 9, 2018 till vänster och 2019 till höger. Även här ser vi att flickors prestationer i skolan ligger något högre än pojkars.</p>
+    <div class="container-type2">
+        <div id="container5b"></div>
+        <div id="container6b"></div>
+    </div>
+    <p>I dessa två diagram ser vi hur utbildningsnivån ser ut för kvinnor och män mellan 1990-2019, alltså om man har avslutat sin utbildning före gymnasiet, efter gymnasiet eller efter universitet/högskola. Här kan vi se att det under nästan alla dess år är fler kvinnor än män som har valt att utbilda sig vidare efter gymnasiet. Slutsatsen man kan dra är alltså att fler kvinnor procentuellt sätt är högutbildade. Detta i kombination med att studieresultaten visar att kvinnor presterar bättre än män i skolan anser man ju borde peka på att kvinnor är mer välutbildade.</p>
+<script type="text/javascript" charset="utf-8">
+    var data1 = 
+    [{% for score in pisaL %}
+        [{{ score.year }},{{ score.women }},{{ score.men }}],
+    {% endfor %}]
+
+    var data2 = 
+    [{% for score in pisaM %}
+        [{{ score.year }},{{ score.women }},{{ score.men }}],
+    {% endfor %}]
+
+    var mscore = 
+    [{% for score in mscore %}
+        [{{ score.year }},{{ score.women }},{{ score.men }}],
+    {% endfor %}]
+
+    var data3 = []
+    
+    data3.push(['Flickor', mscore[0][1]]);
+    data3.push(['Pojkar', mscore[0][2]]);
+
+    var data4 = []
+    
+    data4.push(['Flickor', mscore[1][1]]);
+    data4.push(['Pojkar', mscore[1][2]]);
+
+    var eduLevelW = 
+    [{% for level in eduLevel %}
+        [{{ level.year }},{{ level.women }}],
+    {% endfor %}]
+
+    data5 = []
+
+    for (let i = 0; i < eduLevelW.length; i++) {
+        year = eduLevelW[i][0]
+        value1 = eduLevelW[i][1]
+        value2 = eduLevelW[i+1][1]
+        value3 = eduLevelW[i+2][1]
+        value4 = eduLevelW[i+3][1]
+        data5.push([year, value1, value2, value3, value4])
+        i = i + 3
+    }
+
+    var eduLevelM = 
+    [{% for level in eduLevel %}
+        [{{ level.year }},{{ level.men }}],
+    {% endfor %}]
+
+    data6 = []
+
+    for (let i = 0; i < eduLevelM.length; i++) {
+        year = eduLevelM[i][0]
+        value1 = eduLevelM[i][1]
+        value2 = eduLevelM[i+1][1]
+        value3 = eduLevelM[i+2][1]
+        value4 = eduLevelM[i+3][1]
+        data6.push([year, value1, value2, value3, value4])
+        i = i + 3
+    }
+
+    anychart.onDocumentReady(function () {
+    var data = anychart.data.set(data1);
+    var first = data.mapAs({ x: 0, value: 1 });
+    var second = data.mapAs({ x: 0, value: 2 });
+
+    var data = anychart.data.set(data2);
+    var first2 = data.mapAs({ x: 0, value: 1 });
+    var second2 = data.mapAs({ x: 0, value: 2 });
+
+    var data = anychart.data.set(data3);
+    var first3 = data.mapAs({ x: 0, value: 1 });
+
+    var data = anychart.data.set(data4);
+    var first4 = data.mapAs({ x: 0, value: 1 });
+
+    var data = anychart.data.set(data5);
+    var first5 = data.mapAs({ x: 0, value: 1 });
+    var second5 = data.mapAs({ x: 0, value: 2 });
+    var third5 = data.mapAs({ x: 0, value: 3 });
+    var fourth5 = data.mapAs({ x: 0, value: 4 });
+
+    var data = anychart.data.set(data6);
+    var first6 = data.mapAs({ x: 0, value: 1 });
+    var second6 = data.mapAs({ x: 0, value: 2 });
+    var third6 = data.mapAs({ x: 0, value: 3 });
+    var fourth6 = data.mapAs({ x: 0, value: 4 });
+
+    var chart1 = anychart.line();
+    var chart2 = anychart.line();
+    var chart3 = anychart.pie(first3);
+    var chart4 = anychart.pie(first4);
+    var chart5 = anychart.column();
+    var chart6 = anychart.column();
+
+    var firstLine = chart1.line(first);
+    firstLine.name("Flickor");
+    var secondLine = chart1.line(second);
+    secondLine.name("Pojkar");
+    var firstLine2 = chart2.line(first2);
+    firstLine2.name("Flickor");
+    var secondLine2 = chart2.line(second2);
+    secondLine2.name("Pojkar");
+    firstColumn5 = chart5.column(first5);
+    firstColumn5.name("Förgymnasial");
+    secondColumn5 = chart5.column(second5);
+    secondColumn5.name("Gymnasial");
+    thirdColumn5 = chart5.column(third5);
+    thirdColumn5.name("Eftergymnasial");
+    fourthColumn5 = chart5.column(fourth5);
+    fourthColumn5.name("Okänt");
+    firstColumn6 = chart6.column(first6);
+    firstColumn6.name("Förgymnasial");
+    secondColumn6 = chart6.column(second6);
+    secondColumn6.name("Gymnasial");
+    thirdColumn6 = chart6.column(third6);
+    thirdColumn6.name("Eftergymnasial");
+    fourthColumn6 = chart6.column(fourth6);
+    fourthColumn6.name("Okänt");
+
+    chart1.animation(true);
+    chart2.animation(true);
+    chart3.animation(true);
+    chart4.animation(true);
+    chart5.animation(true);
+    chart6.animation(true);
+
+    chart1.legend().enabled(true);
+    chart2.legend().enabled(true);
+    chart3.legend().enabled(true);
+    chart4.legend().enabled(true);
+    chart5.legend().enabled(true);
+    chart6.legend().enabled(true);
+
+    chart1.yScale().minimum(0);
+    chart2.yScale().minimum(0);
+    chart5.yScale().minimum(0).maximum(100).stackMode('value');
+    chart6.yScale().minimum(0).maximum(100).stackMode('value');
+    chart1.yAxis().title('Poäng');
+    chart1.xAxis().title('År');
+    chart2.yAxis().title('Poäng');
+    chart2.xAxis().title('År');
+    chart5.yAxis().title('Procent');
+    chart5.xAxis().title('År');
+    chart6.yAxis().title('Procent');
+    chart6.xAxis().title('År');
+    chart1.xAxis().labels().padding(5);
+    chart2.xAxis().labels().padding(3);
+
+    chart1.title('Poäng i PISA undersökning årskurs 9 - Läsning');
+    chart2.title('Poäng i PISA undersökning årskurs 9 - Matematik');
+    chart3.title('Meritvärde efter årskurs 9 (oavsett bakgrund) 2018');
+    chart4.title('Meritvärde efter årskurs 9 (oavsett bakgrund) 2019');
+    chart5.title('Kvinnliga befolkningens (25-64 år) avslutade utbildningsnivå');
+    chart6.title('Manliga befolkningens (25-64 år) avslutade utbildningsnivå');
+
+    chart1.palette(['#671040', '#7f94c1']);
+    chart2.palette(['#671040', '#7f94c1']);
+    chart3.palette(['#671040', '#7f94c1']);
+    chart4.palette(['#671040', '#7f94c1']);
+    chart5.palette(['#f0dce7', '#cb90b1', '#bc6294', '#671040']);
+    chart6.palette(['#d9e1f3', '#abb8d7', '#7f94c1', '#3e5892']);
+
+    chart1.container('container1b');
+    chart2.container('container2b');
+    chart3.container('container3b');
+    chart4.container('container4b');
+    chart5.container('container5b');
+    chart6.container('container6b');
+    chart1.draw();
+    chart2.draw();
+    chart3.draw();
+    chart4.draw();
+    chart5.draw();
+    chart6.draw();
+    });
+
+    console.log(data1);
+    console.log(data2);
+    console.log(data3);
+    console.log(data5);
+</script>
+{% endblock %}

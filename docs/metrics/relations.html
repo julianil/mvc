@@ -49,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2023-05-19 13:51:59        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2023-07-06 12:53:06        , with PHPMetrics v2.8.2 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -262,7 +262,7 @@
 
     var relations = [
     {
-        "name": "\\App\\Repository\\LibraryRepository",
+        "name": "\\App\\Repository\\StatisticsRepository",
         "size": 3000,
         "relations": []
     },
@@ -273,6 +273,26 @@
     },
     {
         "name": "\\Doctrine\\Persistence\\ManagerRegistry",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Entity\\Statistics",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Repository\\MilestonesRepository",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Entity\\Milestones",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Repository\\LibraryRepository",
         "size": 3000,
         "relations": []
     },
@@ -288,6 +308,34 @@
     },
     {
         "name": "\\App\\Entity\\Product",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Repository\\Goal5Repository",
+        "size": 3000,
+        "relations": [
+            "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\Goal5"
+        ]
+    },
+    {
+        "name": "\\App\\Entity\\Goal5",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\App\\Repository\\GoalTablesRepository",
+        "size": 3000,
+        "relations": [
+            "\\Doctrine\\Bundle\\DoctrineBundle\\Repository\\ServiceEntityRepository",
+            "\\Doctrine\\Persistence\\ManagerRegistry",
+            "\\App\\Entity\\GoalTables"
+        ]
+    },
+    {
+        "name": "\\App\\Entity\\GoalTables",
         "size": 3000,
         "relations": []
     },
@@ -346,6 +394,22 @@
         "relations": []
     },
     {
+        "name": "\\App\\Controller\\ProjektControllerJson",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Repository\\MilestonesRepository",
+            "\\App\\Repository\\StatisticsRepository",
+            "\\Symfony\\Component\\HttpFoundation\\Request"
+        ]
+    },
+    {
+        "name": "\\Symfony\\Component\\HttpFoundation\\Request",
+        "size": 3000,
+        "relations": []
+    },
+    {
         "name": "\\App\\Controller\\LuckyControllerGame",
         "size": 3000,
         "relations": [
@@ -368,9 +432,14 @@
         ]
     },
     {
-        "name": "\\Symfony\\Component\\HttpFoundation\\Request",
+        "name": "\\App\\Controller\\ProjektControllerTwig",
         "size": 3000,
-        "relations": []
+        "relations": [
+            "\\Symfony\\Bundle\\FrameworkBundle\\Controller\\AbstractController",
+            "\\Symfony\\Component\\HttpFoundation\\Response",
+            "\\App\\Repository\\MilestonesRepository",
+            "\\App\\Repository\\StatisticsRepository"
+        ]
     },
     {
         "name": "\\App\\Controller\\LuckyControllerTwig",
