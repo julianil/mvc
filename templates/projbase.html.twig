@@ -17,6 +17,9 @@
         <script src="https://cdn.anychart.com/releases/v8/js/anychart-exports.min.js"></script>
         <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
         <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
         <style type="text/css">
 
             html,
@@ -40,7 +43,7 @@
             </ul>
         </nav>
         <header class="site-header" style="background-image: url({{ asset('img/projheader.jpg') }})"></header>
-        <main>{% block body %}{% endblock %}</main>
+        <main class="proj-body">{% block body %}{% endblock %}</main>
 
         <footer class="footer-proj">{% block footer %}
         <a href="https://github.com/julianil/mvc">Mitt Git-repo</a><br><br>

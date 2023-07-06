@@ -7,9 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * This class represents the statistics of the goal.
- * The get methods gets the code (name of table), year, stats for women, stats for men, 
+ * The get methods gets the code (name of table), year, stats for women, stats for men,
  * the difference between the stats for women and men and the category to which the stats belongs.
- * The set methods sets the code (name of table), year, stats for women, stats for men, 
+ * The set methods sets the code (name of table), year, stats for women, stats for men,
  * the difference between the stats for women and men and the category to which the stats belongs.
  */
 
