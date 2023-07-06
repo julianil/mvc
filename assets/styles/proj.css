@@ -17,10 +17,35 @@ body {
 
 .nav-proj {
     background-color: #671040;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-proj ul {
+    align-items: center;
+    display: flex;
+    font-size: 25px;
+    list-style-type: none;
+    height: auto;
+    padding: initial;
+    max-width: none;
+}
+
+.nav-proj li {
+    margin: 15px 60px;
 }
 
 .nav-proj a {
     font-family: 'Playfair Display', serif;
+}
+
+.nav-proj a:hover {
+    color: #7f94c1;
+}
+
+.proj-header {
+    height: 80vh;
+    background-size: cover;
 }
 
 .mini-nav {
@@ -39,7 +64,7 @@ body {
 }
 
 .mini-nav a:hover {
-    color: #671040;
+    color: #7f94c1;
 }
 
 .milestones {
@@ -213,17 +238,46 @@ body {
     color: #7f94c1;
 }
 
+.about-link {
+    color: black;
+}
+
 .footer-proj {
     background-color: #671040;
     min-height: 150px;
     padding: 40px;
     font-size: 20px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 60px;
     color: white;
     font-family: 'Playfair Display', serif;
 }
 
 .footer-proj a {
     font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+}
+
+.footer-box ul {
+    display: block;
+    padding: initial;
+    height: auto;
+}
+
+.footer-box li {
+    padding-bottom: 5px;
+}
+
+.footer-box p {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #7f94c1;
+    font-size: 1.5rem;
 }

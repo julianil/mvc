@@ -19,17 +19,10 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 class ProjektControllerJson extends AbstractController
 {
     #[Route("/proj/api", name: "projekt_api")]
-    public function proj_api(
-        MilestonesRepository $milestonesRepository
-    ): Response {
-        $milestones = $milestonesRepository
-            ->findAll();
+    public function proj_api(): Response
+    {
 
-        $data = [
-            'milestones' => $milestones
-        ];
-
-        return $this->render('proj/api.html.twig', $data);
+        return $this->render('proj/api.html.twig');
     }
 
     #[Route("/proj/api/milestones", name: "api_milestones")]

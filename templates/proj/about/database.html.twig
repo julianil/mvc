@@ -5,11 +5,17 @@
 {% block body %}
     <h1>Databas</h1>
     <p class="author">Skriven 2023-04-05 av Julia Nilsson</p>
-    <img class="uml-proj" src="{{ asset('img/uml-projekt.png') }}" alt="">
-    <p>Jag valde att skapa en grundtabell för mål 5. Denna kopplas till ihop med både statistik- och milestones-tabellen genom en kopplingstabell, goal_tabelles, för att säkerställa att förhållande blev 1 N. I goal_tabelles kopplar jag samman indikatorernas namn från goal5-tabellen med koderna som jag skapat för att särskilja olika typer av data i statistik och milestone-tabellerna.<br><br>
-    Jag valde att använda mig av SQLite precis som jag gjort tidigare i denna kurs, det kändes enklast och gick hyfsat smidigt genom hela projektet.<br><br>
-    Berätta om du gjorde enhetstester mot databasen, Berätta om/hur du lyckades med enhetstester på Scrutinizer med databasen.<br><br>
-    Berätta med egna ord (cirka 15 meningar) om hur du ser på fördelar, nackdelar, likheter och skillnader mellan ORM och det sätt vi jobbade med databasen i databaskursen.<br>
-    Överlag så skulle jag säga att jag föredrar att jobba mot databasen på de sätt som vi gjorde i databaskursen. Jag upplevde att jag där var flexibel med vad jag kunde göra och plocka ut från databasen etc jämfört med hur man jobbar med ORM. Samtidigt kan jag absolut se varför ORM är ett bra sätt att jobba mot databaser om man är lite mindre erfaren i SQL osv då det inte krävs speciellt mycket kunskaper i databaser för att göra. 
-    </p>
+    <img class="uml-proj" src="{{ asset('img/uml-projekt.png') }}" alt="UML diagram för projekt">
+    <p>Goal5- Representerar allt innehåll som finns tillgängligt för målet, delmål och indikatorer exempelvis.<br>
+    GoalTables- Kopplingstabell mellan Goal5 och Milestones samt Goal5 och Statistics för att skapa 1 N förhållanden. Innehåller alla tabellkoder och alla typer av innehåll.<br>
+    Milestones- Innehåller alla delmål för mål 5.<br>
+    Statistics- Innehåller all statistik kopplad till mål 5.<br>
+    <p>Jag valde att skapa en grundtabell för mål 5. Denna kopplas ihop med både statistik- och milestones-tabellen genom en kopplingstabell, goal_tables, för att säkerställa att förhållande blev 1 N. I goal_tables kopplar jag samman indikatorernas namn från goal5-tabellen med koderna som jag skapat för att särskilja olika typer av data i statistik och milestone-tabellerna.</p>
+    <p>Jag valde att använda mig av SQLite precis som jag gjort tidigare i denna kurs, det kändes enklast och gick hyfsat smidigt genom hela projektet. Dessutom slapp jag fixa med att sätta upp MariaDB i projektet vilket var skönt, SQLite gick snabbare att komma igång med.
+    För att göra det enkelt för mig själv valde jag att skapa en backup på min databas som jag körde i terminalen om något skulle blivit tokigt, så jag kunde kände mig trygg med att den alltid gick att få tillbaka till ursprungskick.</p>
+    <p>Jag skapade ett antal enkla enhetstester för min databas. Fick tillslut 20% täckning på varje repository och över 90% täckning på 3 av 6 enititys, resterande fick över 70%.</p>
+    <p>Överlag så skulle jag säga att jag föredrar att jobba mot databasen på de sätt som vi gjorde i databaskursen. 
+    Jag upplevde att jag där var mer flexibel med vad jag kunde göra och plocka ut från databasen etc jämfört med hur man jobbar med ORM.
+    Samtidigt kan jag absolut se varför ORM är ett bra sätt att jobba mot databaser om man är lite mindre erfaren i databaser, SQL osv då det inte krävs speciellt mycket kunskaper i databaser för att göra.
+    Men för mig som har fått med mig ganska mycket kunskaper i de kurser jag har läst så känner jag att de inte är nödvändigt för mig. Jag har hellre mer frihet och möjligheter när jag skapar och jobbar med min databas än att den ska vara enkel att sätta upp.</p>
 {% endblock %}

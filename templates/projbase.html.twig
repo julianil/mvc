@@ -42,11 +42,28 @@
                 <li><a href="{{ path('projekt_api') }}">API</a></li>
             </ul>
         </nav>
-        <header class="site-header" style="background-image: url({{ asset('img/projheader.jpg') }})"></header>
+        <header class="proj-header" style="background-image: url({{ asset('img/projheader.jpg') }})"></header>
         <main class="proj-body">{% block body %}{% endblock %}</main>
 
         <footer class="footer-proj">{% block footer %}
-        <a href="https://github.com/julianil/mvc">Mitt Git-repo</a><br><br>
+        <div class="footer-info">
+            <div class="footer-box">
+                <p>Indikatorer</p>
+                <ul>
+                    <li><a href="{{ path('economic') }}">Ekonomi</a></li>
+                    <li><a href="{{ path('education') }}">Utbildning</a></li>
+                    <li><a href="{{ path('homelabor') }}">Hemarbete</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <p>Länkar</p>
+                <ul>
+                    <li><a href="https://github.com/julianil/mvc">Mitt Git-repo</a></li>
+                    <li><a href="{{ path('aboutdatabase') }}">Info databas</a></li>
+                    <li><a href="https://www.globalamalen.se/om-globala-malen/mal-5-jamstalldhet/">Mål 5</a></li>
+                </ul>
+            </div>
+        </div>
         © Julia Nilsson{% endblock %}</footer>
     </body>
 </html>

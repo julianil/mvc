@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1688651944">
-  <project timestamp="1688651944">
+<coverage generated="1688674589">
+  <project timestamp="1688674589">
     <file name="/Users/julianilsson/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
-        <metrics complexity="20" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="30" elements="48" coveredelements="37"/>
+        <metrics complexity="20" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="34" elements="48" coveredelements="41"/>
       </class>
       <line num="10" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="19"/>
       <line num="12" type="stmt" count="19"/>
       <line num="13" type="stmt" count="19"/>
-      <line num="16" type="method" name="drawCard" visibility="public" complexity="10" crap="22.50" count="2"/>
+      <line num="16" type="method" name="drawCard" visibility="public" complexity="10" crap="12.70" count="2"/>
       <line num="18" type="stmt" count="2"/>
       <line num="19" type="stmt" count="2"/>
       <line num="20" type="stmt" count="2"/>
-      <line num="21" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="1"/>
+      <line num="22" type="stmt" count="1"/>
       <line num="23" type="stmt" count="0"/>
       <line num="24" type="stmt" count="0"/>
       <line num="25" type="stmt" count="0"/>
@@ -23,22 +23,22 @@
       <line num="32" type="stmt" count="2"/>
       <line num="33" type="stmt" count="2"/>
       <line num="34" type="stmt" count="2"/>
-      <line num="35" type="stmt" count="1"/>
-      <line num="36" type="stmt" count="2"/>
-      <line num="37" type="stmt" count="2"/>
-      <line num="38" type="stmt" count="0"/>
-      <line num="39" type="stmt" count="0"/>
+      <line num="35" type="stmt" count="2"/>
+      <line num="36" type="stmt" count="1"/>
+      <line num="37" type="stmt" count="1"/>
+      <line num="38" type="stmt" count="1"/>
+      <line num="39" type="stmt" count="1"/>
       <line num="42" type="stmt" count="2"/>
       <line num="45" type="method" name="drawCardDeck" visibility="public" complexity="4" crap="4" count="4"/>
       <line num="47" type="stmt" count="4"/>
       <line num="48" type="stmt" count="4"/>
       <line num="49" type="stmt" count="4"/>
       <line num="50" type="stmt" count="4"/>
-      <line num="51" type="stmt" count="1"/>
-      <line num="52" type="stmt" count="4"/>
+      <line num="51" type="stmt" count="2"/>
+      <line num="52" type="stmt" count="3"/>
       <line num="53" type="stmt" count="3"/>
-      <line num="54" type="stmt" count="4"/>
-      <line num="55" type="stmt" count="2"/>
+      <line num="54" type="stmt" count="3"/>
+      <line num="55" type="stmt" count="1"/>
       <line num="58" type="stmt" count="4"/>
       <line num="60" type="stmt" count="4"/>
       <line num="63" type="method" name="addValues" visibility="public" complexity="1" crap="1" count="15"/>
@@ -53,7 +53,7 @@
       <line num="83" type="stmt" count="1"/>
       <line num="86" type="method" name="getAsString" visibility="public" complexity="1" crap="1" count="7"/>
       <line num="88" type="stmt" count="7"/>
-      <metrics loc="91" ncloc="91" classes="1" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="30" elements="48" coveredelements="37"/>
+      <metrics loc="91" ncloc="91" classes="1" methods="8" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="40" coveredstatements="34" elements="48" coveredelements="41"/>
     </file>
     <file name="/Users/julianilsson/dbwebb-kurser/mvc/me/report/src/Card/CardGraphic.php">
       <class name="App\Card\CardGraphic" namespace="global">
@@ -96,11 +96,11 @@
       <line num="44" type="stmt" count="3"/>
       <line num="45" type="stmt" count="1"/>
       <line num="46" type="stmt" count="3"/>
-      <line num="47" type="stmt" count="1"/>
+      <line num="47" type="stmt" count="2"/>
       <line num="48" type="stmt" count="3"/>
       <line num="49" type="stmt" count="2"/>
       <line num="50" type="stmt" count="3"/>
-      <line num="51" type="stmt" count="2"/>
+      <line num="51" type="stmt" count="1"/>
       <line num="53" type="stmt" count="3"/>
       <line num="55" type="stmt" count="3"/>
       <line num="58" type="method" name="bankHand" visibility="public" complexity="2" crap="2" count="2"/>
@@ -559,70 +559,65 @@
     </file>
     <file name="/Users/julianilsson/dbwebb-kurser/mvc/me/report/src/Controller/ProjektControllerJson.php">
       <class name="App\Controller\ProjektControllerJson" namespace="global">
-        <metrics complexity="7" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="54" coveredstatements="0" elements="61" coveredelements="0"/>
+        <metrics complexity="7" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="49" coveredstatements="0" elements="56" coveredelements="0"/>
       </class>
       <line num="21" type="method" name="proj_api" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="25" type="stmt" count="0"/>
-      <line num="26" type="stmt" count="0"/>
-      <line num="28" type="stmt" count="0"/>
-      <line num="29" type="stmt" count="0"/>
-      <line num="30" type="stmt" count="0"/>
+      <line num="24" type="stmt" count="0"/>
+      <line num="27" type="method" name="api_milestones" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="31" type="stmt" count="0"/>
       <line num="32" type="stmt" count="0"/>
-      <line num="35" type="method" name="api_milestones" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="39" type="stmt" count="0"/>
-      <line num="40" type="stmt" count="0"/>
-      <line num="42" type="stmt" count="0"/>
-      <line num="43" type="stmt" count="0"/>
-      <line num="44" type="stmt" count="0"/>
+      <line num="34" type="stmt" count="0"/>
+      <line num="35" type="stmt" count="0"/>
+      <line num="36" type="stmt" count="0"/>
+      <line num="37" type="stmt" count="0"/>
+      <line num="38" type="stmt" count="0"/>
+      <line num="41" type="method" name="api_economy" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="45" type="stmt" count="0"/>
       <line num="46" type="stmt" count="0"/>
-      <line num="49" type="method" name="api_economy" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="48" type="stmt" count="0"/>
+      <line num="50" type="stmt" count="0"/>
+      <line num="51" type="stmt" count="0"/>
+      <line num="52" type="stmt" count="0"/>
       <line num="53" type="stmt" count="0"/>
       <line num="54" type="stmt" count="0"/>
-      <line num="55" type="stmt" count="0"/>
-      <line num="56" type="stmt" count="0"/>
-      <line num="58" type="stmt" count="0"/>
-      <line num="59" type="stmt" count="0"/>
-      <line num="60" type="stmt" count="0"/>
+      <line num="57" type="method" name="api_education" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="61" type="stmt" count="0"/>
       <line num="62" type="stmt" count="0"/>
-      <line num="65" type="method" name="api_education" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="63" type="stmt" count="0"/>
+      <line num="64" type="stmt" count="0"/>
+      <line num="66" type="stmt" count="0"/>
+      <line num="67" type="stmt" count="0"/>
+      <line num="68" type="stmt" count="0"/>
       <line num="69" type="stmt" count="0"/>
       <line num="70" type="stmt" count="0"/>
-      <line num="71" type="stmt" count="0"/>
-      <line num="72" type="stmt" count="0"/>
-      <line num="74" type="stmt" count="0"/>
-      <line num="75" type="stmt" count="0"/>
-      <line num="76" type="stmt" count="0"/>
+      <line num="73" type="method" name="api_homelabor" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="77" type="stmt" count="0"/>
       <line num="78" type="stmt" count="0"/>
-      <line num="81" type="method" name="api_homelabor" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="79" type="stmt" count="0"/>
+      <line num="80" type="stmt" count="0"/>
+      <line num="82" type="stmt" count="0"/>
+      <line num="83" type="stmt" count="0"/>
+      <line num="84" type="stmt" count="0"/>
       <line num="85" type="stmt" count="0"/>
       <line num="86" type="stmt" count="0"/>
-      <line num="87" type="stmt" count="0"/>
-      <line num="88" type="stmt" count="0"/>
-      <line num="90" type="stmt" count="0"/>
-      <line num="91" type="stmt" count="0"/>
-      <line num="92" type="stmt" count="0"/>
-      <line num="93" type="stmt" count="0"/>
+      <line num="89" type="method" name="post_table" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="94" type="stmt" count="0"/>
-      <line num="97" type="method" name="post_table" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="102" type="stmt" count="0"/>
-      <line num="104" type="stmt" count="0"/>
-      <line num="105" type="stmt" count="0"/>
-      <line num="106" type="stmt" count="0"/>
+      <line num="96" type="stmt" count="0"/>
+      <line num="97" type="stmt" count="0"/>
+      <line num="98" type="stmt" count="0"/>
+      <line num="100" type="stmt" count="0"/>
+      <line num="102" type="method" name="apiShowTable" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="107" type="stmt" count="0"/>
       <line num="108" type="stmt" count="0"/>
-      <line num="110" type="method" name="apiShowTable" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="109" type="stmt" count="0"/>
+      <line num="110" type="stmt" count="0"/>
+      <line num="112" type="stmt" count="0"/>
+      <line num="113" type="stmt" count="0"/>
+      <line num="114" type="stmt" count="0"/>
       <line num="115" type="stmt" count="0"/>
       <line num="116" type="stmt" count="0"/>
-      <line num="117" type="stmt" count="0"/>
-      <line num="118" type="stmt" count="0"/>
-      <line num="120" type="stmt" count="0"/>
-      <line num="121" type="stmt" count="0"/>
-      <line num="122" type="stmt" count="0"/>
-      <line num="123" type="stmt" count="0"/>
-      <line num="124" type="stmt" count="0"/>
-      <metrics loc="127" ncloc="127" classes="1" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="54" coveredstatements="0" elements="61" coveredelements="0"/>
+      <metrics loc="119" ncloc="119" classes="1" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="49" coveredstatements="0" elements="56" coveredelements="0"/>
     </file>
     <file name="/Users/julianilsson/dbwebb-kurser/mvc/me/report/src/Controller/ProjektControllerTwig.php">
       <class name="App\Controller\ProjektControllerTwig" namespace="global">
@@ -954,6 +949,6 @@
       <line num="38" type="stmt" count="0"/>
       <metrics loc="67" ncloc="36" classes="1" methods="3" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="1" elements="10" coveredelements="2"/>
     </file>
-    <metrics files="26" loc="2184" ncloc="1975" classes="25" methods="141" coveredmethods="68" conditionals="0" coveredconditionals="0" statements="656" coveredstatements="168" elements="797" coveredelements="236"/>
+    <metrics files="26" loc="2176" ncloc="1967" classes="25" methods="141" coveredmethods="68" conditionals="0" coveredconditionals="0" statements="651" coveredstatements="172" elements="792" coveredelements="240"/>
   </project>
 </coverage>
